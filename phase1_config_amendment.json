@@ -1,0 +1,20 @@
+{
+  "amends": "phase1_config.json",
+  "amendment_id": "phase1_amendment_exclude_seed_10462",
+  "training_seed_exclusion": {
+    "excluded_seeds": [10462],
+    "replacement_seeds": [],
+    "retained_training_episodes": 499,
+    "validation_episodes_unchanged": 100,
+    "reason": "The expert proposed pickup, which is outside the student's allowed action set {left, right, forward}."
+  },
+  "repetition_diagnostic_definitions": {
+    "repeated_policy_input": "Step t in an episode where sha256[:16] of the 247-d float32 feature vector equals an earlier step k < t in the same episode.",
+    "repeated_raw_observation": "Step t in an episode where sha256[:16] of (obs['image'].tobytes() + obs['mission'].encode('utf-8')) equals an earlier step k < t in the same episode.",
+    "repeated_pose": "Step t in an episode where true (agent_pos[0], agent_pos[1], agent_dir) equals an earlier step k < t in the same episode.",
+    "consecutive_blocked_forward": "Contiguous run of >= 2 steps where front_blocked == True and chosen_action == 2 (forward).",
+    "recurring_multistep_cycle": "Revisit of a previously visited true (agent_pos[0], agent_pos[1], agent_dir) pose at step t after first visit at step k < t with cycle_length = t - k (distinguishing length 1, length 2, and length >= 3; under static GoToLocal grid and deterministic argmax over current obs, pose revisit yields exact periodic state/action recurrence).",
+    "observation_alias_without_pose_repeat": "Repeated policy input at a pose not yet visited in the episode."
+  },
+  "continuation_wall_clock_cap_seconds": 300.0
+}

@@ -1,0 +1,9 @@
+# Pinned dependency lock for Phase 0 (minigrid==3.2.0 on Python 3.14.3, Windows x86_64)
+# Generated via: "minigrid==3.2.0" | uv pip compile - --python 3.14 --no-build
+cloudpickle==3.1.2
+farama-notifications==0.0.6
+gymnasium==1.4.0
+minigrid==3.2.0
+numpy==2.5.4
+pygame-ce==2.5.8
+typing-extensions==4.16.0

@@ -1,0 +1,70 @@
+{
+  "plan_version": "phase3_frozen_before_execution_v1",
+  "practical_objective": "Evaluate how to make a frozen sequential decision model useful in a sequential action loop across both effectiveness and developer burden, framed as an expert-assisted reference result rather than a deployable recovery solution or superiority ranking over execution-side recovery.",
+  "question": "Under the unchanged 247 -> 64 ReLU -> 3 architecture, 247-d current-observation task-relative features, and deterministic argmax execution, what does one bounded round of on-policy BabyAIBot.replan supervision on the 499 Phase 1 training seeds achieve on dev 0..99 (success, rescues, harms, repetition, episode lengths), what does it cost in expert queries/samples/retraining, and what failures remain?",
+  "wording_amendments": [
+    "Do not claim execution-side loop breakers cannot address the five non-fixed-point cycles; they have not been evaluated here, and blocking invalid forward movement and general cycle recovery are different interventions.",
+    "No additional inference-time recovery rules or persistent execution state are added; data collection, sample filtering, deduplication, and checkpoint selection still involve design choices."
+  ],
+  "unchanged_components": {
+    "env_id": "BabyAI-GoToLocal-v0",
+    "max_steps": 64,
+    "student_allowed_actions": [0, 1, 2],
+    "student_action_names": ["left", "right", "forward"],
+    "feature_encoding": "247-d task-relative egocentric encoding from current obs only",
+    "architecture": {"type": "numpy_mlp_1_hidden", "input_dim": 247, "hidden_dim": 64, "activation": "relu", "output_dim": 3, "init_seed": 42},
+    "optimizer": {"loss": "cross_entropy_plus_l2", "l2_weight_decay": 0.0001, "optimizer": "adam", "learning_rate": 0.003, "beta1": 0.9, "beta2": 0.999, "eps": 1e-08, "batch_size": 64, "shuffle_seed": 42},
+    "policy_execution": "deterministic_argmax_no_inference_rules_or_persistent_state",
+    "validation_set": "unchanged Phase 1 val set (seeds 20000..20099, 514 samples)",
+    "checkpoint_selection_rule": "lowest_val_cross_entropy_tiebreak_val_agreement_then_earliest_checkpoint_slot",
+    "reserved_confirmation_seeds": "30000..30199 completely untouched"
+  },
+  "data_and_seeds": {
+    "on_policy_collection_policy": "frozen Phase 1 epoch-21 weights (phase1_weights.npz)",
+    "training_seeds": "10000..10499 excluding 10462 (499 episodes)",
+    "outside_action_handling": "sample-level exclusion and manifest logging of any step where BabyAIBot.replan proposes an action outside {0, 1, 2}, continuing the student rollout",
+    "deduplication_rule": "within each rollout episode, retain at most 1 sample per distinct (feat_hash, expert_action) pair in order of first visit",
+    "validation_seeds": "20000..20099 (100 episodes, 514 expert samples unchanged)",
+    "dev_eval_seeds": "0..99 (100 episodes)",
+    "reserved_confirmation_seeds": "30000..30199 (untouched)"
+  },
+  "training_and_checkpoint_schedule": {
+    "initialization": "both aggregated-data run and step-matched control restart from init_seed=42 with fresh Adam state",
+    "aggregated_data_run": {
+      "dataset": "D_phase1 (2,656 samples) + D_onpolicy",
+      "max_epochs": 60,
+      "batches_per_epoch": "B_comb = ceil(len(D_combined) / 64)",
+      "total_optimizer_updates": "U_target = 60 * B_comb",
+      "checkpoint_schedule": "60 validation evaluations at optimizer updates u_k = k * B_comb for k = 1..60 (end of each epoch)"
+    },
+    "step_matched_original_data_control": {
+      "dataset": "D_phase1 alone (2,656 samples, 42 batches per pass)",
+      "total_optimizer_updates": "U_target = 60 * B_comb (exact match to aggregated-data run)",
+      "checkpoint_schedule": "60 validation evaluations at exact optimizer updates u_k = k * B_comb for k = 1..60, giving exact parity in optimizer updates (U_target) and checkpoint-selection opportunities (60)"
+    }
+  },
+  "resource_caps": {
+    "environment": "existing Windows CPU-only .venv",
+    "combined_wall_clock_cap_seconds": 300.0,
+    "no_new_packages_or_downloads": true,
+    "no_further_relabelling_rounds": true
+  },
+  "required_reporting": {
+    "policies_compared": ["phase1_checkpoint", "step_matched_control", "aggregated_dagger_checkpoint"],
+    "supervision_cost_counts": [
+      "total_advisory_expert_calls",
+      "calls_outside_student_action_set",
+      "eligible_label_occurrences_before_dedup",
+      "samples_retained_after_dedup",
+      "retained_samples_already_in_original_train",
+      "feature_vectors_with_conflicting_expert_labels"
+    ],
+    "interpretation_limits": [
+      "Improvement demonstrates usefulness of this specific procedure for this baseline, not original failure causation.",
+      "No improvement does not prove memory or execution-side recovery is necessary.",
+      "Does not rank retraining against execution-side recovery wrappers.",
+      "Dev 0..99 remains exploratory and NumPy-based, not a Laya evaluation.",
+      "Cheap BabyAIBot queries do not transfer as low human labeling burden beyond BabyAI."
+    ]
+  }
+}

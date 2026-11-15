@@ -1,0 +1,52 @@
+{
+  "plan_version": "phase4_frozen_before_execution_v1",
+  "target_perspective": "External integrator operating outside the environment using only permitted public observations, policy probabilities, and episode reset signals.",
+  "question": "Can an external integrator reduce repetitive failure loops in the frozen Phase 1 NumPy policy on dev seeds 0..99 using deterministic per-observation least-tried action selection, without retraining, privileged state, or expert labels, and at what override and state cost?",
+  "base_policy": {
+    "checkpoint_path": "phase1_weights.npz",
+    "weights_sha256": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+    "architecture": "247 -> 64 ReLU -> 3 (stateless, frozen)",
+    "policy_input_representation": "247-d engineered task-relative features derived from obs['image'] and obs['mission']"
+  },
+  "wrapper_specification": {
+    "authoritative_selection_rule": "lexicographic argmin over a in {0, 1, 2} of (counts[obs_key][a], -probs[a], a), evaluated identically on every call with no separate activation branch",
+    "override_definition": "selected action != argmax(probs), which occurs iff counts[obs_key][argmax(probs)] > min(counts[obs_key])",
+    "observation_key": "exact raw key (obs['image'].tobytes(), obs['mission']) derived strictly from permitted public observations (distinct from the policy's 247-d features)",
+    "retained_state": "per-episode dict mapping obs_key -> [c_left, c_right, c_forward]",
+    "memory_disclosure": "The complete wrapped system has episode-local memory in the execution wrapper; it must not be described as memoryless.",
+    "reset_condition": "clear action_counts on episode start (env.reset boundary)",
+    "recovery_termination": "implicit per step: unvisited observations have counts [0, 0, 0] and execute base argmax immediately; no exhaustion abort exists",
+    "tie_breaking_and_rng": "deterministic (-probs[a], then lowest action index a); zero RNG calls",
+    "information_boundary": "Wrapper receives ONLY obs['image'], obs['mission'], probs, and reset(); no env, seed, true pose, grid, target location, BabyAIBot, Phase 3 weights, or evaluator results."
+  },
+  "baseline_preservation_invariant": {
+    "expected_behavior": "Phase 1 had 0 repeated raw observations across all 93 successful dev episodes; therefore all 93 must remain trajectory-identical under the wrapped policy.",
+    "interpretation_limit": "Preserving all 93 baseline successes is an expected consequence of zero intervention on their non-repeating trajectories, not independent evidence that the wrapper is generally non-regressive on episodes with legitimate repeated observations."
+  },
+  "evaluation_and_caps": {
+    "env_id": "BabyAI-GoToLocal-v0",
+    "max_steps": 64,
+    "dev_eval_seeds": "0..99",
+    "reserved_confirmation_seeds": "30000..30199 (untouched)",
+    "phase3_reference": "kept strictly separate as an expert-assisted reference",
+    "environment": "Windows CPU-only .venv, no new packages/APIs/downloads/retraining/labels/commits",
+    "wall_clock_cap_seconds": 300.0
+  },
+  "planned_metrics": {
+    "effectiveness": [
+      "success_count, timeout_count, exception_count",
+      "rescued_vs_phase1, harmed_vs_phase1, baseline_93_trajectory_invariant_verified",
+      "outcomes and changed failure patterns on seeds 3, 15, 29, 43, 50, 80, 94",
+      "repetition and blocked-forward metrics",
+      "episode lengths (all 100, successful only, common-success subset)"
+    ],
+    "intervention_burden": [
+      "episodes with >= 1 override",
+      "total actions differing from base argmax",
+      "retained observation keys per episode (mean and peak)",
+      "decisions made where all three action counts were already >= 1 before the decision",
+      "distinct observation keys reaching full 3-action coverage (all three counts >= 1)",
+      "wall-clock timing measurement and explicit aborts/failures if any"
+    ]
+  }
+}

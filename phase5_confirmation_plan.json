@@ -1,0 +1,46 @@
+{
+  "plan_version": "phase5_frozen_confirmation_plan_v1",
+  "scope": "Single-shot paired comparison on reserved BabyAI-GoToLocal-v0 seeds 30000..30199 between frozen Phase 1 policy and frozen Phase 1 policy + unchanged Phase 4 ExternalObservationCountWrapper (no Phase 3, no tuning, no re-runs).",
+  "environment": {
+    "env_id": "BabyAI-GoToLocal-v0",
+    "max_steps": 64,
+    "student_allowed_actions": [0, 1, 2],
+    "student_action_names": ["left", "right", "forward"],
+    "deterministic_reset": true,
+    "wrapper_episode_local_reset": true
+  },
+  "locked_versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "minigrid": "3.2.0"
+  },
+  "locked_artifacts_sha256": {
+    "phase1_weights.npz": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+    "phase1_config.json": "fbfe17539ab17b22cdf1628c163048c16947361d68180e35f0ea0bef1aa64e91",
+    "run_phase1.py": "e47737624e1f5024fc66559762f3b3ee29536f4f166fd96e2716d825313a7607",
+    "run_phase1_continuation.py": "3ec5e419e2caac8e53d03f5bc57889b4622001c7a48c4afd28aa54a4526af425",
+    "external_wrapper.py": "956571f84345d98b936a83186ada71558e3a6868336dbe323bd1c4b636485bec",
+    "phase5_stats.py": "c3dbc298ed425a7dc5e12c9ba9a6827188fd81a93ab605196034159d34dc7798",
+    "run_phase5_confirmation.py": "973b665faa74f0c9befa03e2c9ba40842b4c8506ade301398bc4ef0e6b8b5cc2"
+  },
+  "seeds": {
+    "start": 30000,
+    "end_inclusive": 30199,
+    "count": 200
+  },
+  "outcome_definitions": {
+    "success": "terminated and total_reward > 0.0 and exception is None",
+    "timeout": "truncated and not terminated and exception is None (64-step limit)",
+    "exception": "any runtime exception raised during episode reset, policy/wrapper inference, or env.step (halts evaluation and preserves partial records)"
+  },
+  "information_boundary": "encode_observation and ExternalObservationCountWrapper consume only obs['image'] and obs['mission'] (and probs/reset); diagnostics (pose, hashes, front_blocked meta, reward) are logged offline only.",
+  "statistical_protocol": {
+    "effect_estimand": "delta = wrapped_success_rate - baseline_success_rate",
+    "confidence_interval": "Newcombe (1998) Method 10 paired Wilson score 95% CI with continuity-adjusted phi_hat when ad - bc > 0 and zero correlation fallback when any margin is zero",
+    "hypothesis_test": "Exact two-sided McNemar binomial test on discordant pairs (n_01, n_10)",
+    "matched_length_groups": ["both_succeed", "wrapper_only_success", "baseline_only_success", "both_fail"],
+    "baseline_revisit_audit": "Track repeated raw observations, overrides, and preserved-vs-regressed outcomes among baseline-successful episodes"
+  },
+  "runtime_cap_seconds": 120.0
+}

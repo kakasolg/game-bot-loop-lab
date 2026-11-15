@@ -1,0 +1,453 @@
+{
+  "label": "Illustrative development-set example: seed 3. Not a confirmation-set episode.",
+  "seed": 3,
+  "env_id": "BabyAI-GoToLocal-v0",
+  "max_steps": 64,
+  "episodes_executed": 2,
+  "indexing_convention": "0-indexed decision steps (0..episode_length-1); frame 0 is pre-step-0 reset render and frame t+1 is post-step-t render.",
+  "dependencies": {
+    "modules": {
+      "gymnasium": true,
+      "minigrid": true,
+      "numpy": true,
+      "pygame": true,
+      "PIL": false,
+      "imageio": false,
+      "matplotlib": false,
+      "cv2": false
+    },
+    "versions": {
+      "python": "3.14.3",
+      "numpy": "2.5.4",
+      "gymnasium": "1.4.0",
+      "minigrid": "3.2.0",
+      "pygame": "2.5.8"
+    },
+    "png_offscreen_ok": true,
+    "gif89a_pure_python_ok": true,
+    "missing_optional_packages": [
+      "PIL",
+      "imageio",
+      "matplotlib",
+      "cv2"
+    ],
+    "required_ready": true
+  },
+  "baseline": {
+    "outcome": "timeout",
+    "success": false,
+    "episode_length": 64,
+    "blocked_forward_steps": 62,
+    "matches_phase2_record": true,
+    "loop_frames_2_to_64_pixel_identical": true,
+    "first_5_steps": [
+      {
+        "step_index_0based": 0,
+        "step_number_1based": 1,
+        "pose": [
+          1,
+          1,
+          0
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          1e-06,
+          0.3016,
+          0.6984
+        ]
+      },
+      {
+        "step_index_0based": 1,
+        "step_number_1based": 2,
+        "pose": [
+          2,
+          1,
+          0
+        ],
+        "base_action": "right",
+        "chosen_action": "right",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.000205,
+          0.994693,
+          0.005102
+        ]
+      },
+      {
+        "step_index_0based": 2,
+        "step_number_1based": 3,
+        "pose": [
+          2,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.103131,
+          0.294098,
+          0.602771
+        ]
+      },
+      {
+        "step_index_0based": 3,
+        "step_number_1based": 4,
+        "pose": [
+          2,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.103131,
+          0.294098,
+          0.602771
+        ]
+      },
+      {
+        "step_index_0based": 4,
+        "step_number_1based": 5,
+        "pose": [
+          2,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.103131,
+          0.294098,
+          0.602771
+        ]
+      }
+    ]
+  },
+  "wrapped": {
+    "outcome": "success",
+    "success": true,
+    "episode_length": 11,
+    "override_steps": 1,
+    "override_step_indices_0based": [
+      3
+    ],
+    "override_step_indices_1based": [
+      4
+    ],
+    "matches_phase4_record": true,
+    "steps": [
+      {
+        "step_index_0based": 0,
+        "step_number_1based": 1,
+        "pose": [
+          1,
+          1,
+          0
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          1e-06,
+          0.3016,
+          0.6984
+        ]
+      },
+      {
+        "step_index_0based": 1,
+        "step_number_1based": 2,
+        "pose": [
+          2,
+          1,
+          0
+        ],
+        "base_action": "right",
+        "chosen_action": "right",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.000205,
+          0.994693,
+          0.005102
+        ]
+      },
+      {
+        "step_index_0based": 2,
+        "step_number_1based": 3,
+        "pose": [
+          2,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.103131,
+          0.294098,
+          0.602771
+        ]
+      },
+      {
+        "step_index_0based": 3,
+        "step_number_1based": 4,
+        "pose": [
+          2,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "right",
+        "overridden": true,
+        "prior_counts": [
+          0,
+          0,
+          1
+        ],
+        "front_blocked": true,
+        "target_in_view": true,
+        "probs": [
+          0.103131,
+          0.294098,
+          0.602771
+        ]
+      },
+      {
+        "step_index_0based": 4,
+        "step_number_1based": 5,
+        "pose": [
+          2,
+          1,
+          2
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": false,
+        "probs": [
+          0.017863,
+          4.6e-05,
+          0.982091
+        ]
+      },
+      {
+        "step_index_0based": 5,
+        "step_number_1based": 6,
+        "pose": [
+          1,
+          1,
+          2
+        ],
+        "base_action": "left",
+        "chosen_action": "left",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": true,
+        "target_in_view": false,
+        "probs": [
+          0.999926,
+          7.3e-05,
+          1e-06
+        ]
+      },
+      {
+        "step_index_0based": 6,
+        "step_number_1based": 7,
+        "pose": [
+          1,
+          1,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          0.035641,
+          0.0,
+          0.964359
+        ]
+      },
+      {
+        "step_index_0based": 7,
+        "step_number_1based": 8,
+        "pose": [
+          1,
+          2,
+          1
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          6e-06,
+          0.0,
+          0.999994
+        ]
+      },
+      {
+        "step_index_0based": 8,
+        "step_number_1based": 9,
+        "pose": [
+          1,
+          3,
+          1
+        ],
+        "base_action": "left",
+        "chosen_action": "left",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          0.986846,
+          0.0,
+          0.013154
+        ]
+      },
+      {
+        "step_index_0based": 9,
+        "step_number_1based": 10,
+        "pose": [
+          1,
+          3,
+          0
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          1e-06,
+          5e-06,
+          0.999993
+        ]
+      },
+      {
+        "step_index_0based": 10,
+        "step_number_1based": 11,
+        "pose": [
+          2,
+          3,
+          0
+        ],
+        "base_action": "forward",
+        "chosen_action": "forward",
+        "overridden": false,
+        "prior_counts": [
+          0,
+          0,
+          0
+        ],
+        "front_blocked": false,
+        "target_in_view": true,
+        "probs": [
+          0.0,
+          1e-06,
+          0.999999
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "gif": "demo/seed3_baseline_vs_wrapper.gif",
+    "gif_bytes": 153200,
+    "gif_sha256": "443cd3c3d573f7e99eed9189c3a634e8e769fdf6f969db49b8fec61baa9c7327",
+    "keyframes_png": "demo/seed3_keyframes.png",
+    "keyframes_png_bytes": 33563,
+    "keyframes_png_sha256": "5c057edf44c3f3701195ae6a08f2790f981547cc7614b541b0c0ffb7a7270560"
+  }
+}

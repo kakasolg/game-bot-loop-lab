@@ -1,0 +1,55 @@
+{
+  "train": {
+    "split": "train",
+    "requested_episodes": 500,
+    "collected_episodes": 500,
+    "success_count": 499,
+    "timeout_count": 0,
+    "exception_count": 0,
+    "unexpected_action_count": 1,
+    "total_steps": 2657,
+    "mean_episode_length": 5.314,
+    "min_episode_length": 1,
+    "max_episode_length": 19,
+    "action_counts": {
+      "forward": 1617,
+      "left": 487,
+      "right": 553
+    },
+    "front_blocked_steps": 436,
+    "target_in_view_steps": 2236,
+    "anomalies": [
+      {
+        "split": "train",
+        "seed": 10462,
+        "step": 1,
+        "type": "unexpected_action",
+        "action": 3
+      }
+    ],
+    "stopped_by_wall_clock_cap": false
+  },
+  "val": {
+    "split": "val",
+    "requested_episodes": 100,
+    "collected_episodes": 100,
+    "success_count": 100,
+    "timeout_count": 0,
+    "exception_count": 0,
+    "unexpected_action_count": 0,
+    "total_steps": 514,
+    "mean_episode_length": 5.14,
+    "min_episode_length": 1,
+    "max_episode_length": 15,
+    "action_counts": {
+      "left": 94,
+      "forward": 311,
+      "right": 109
+    },
+    "front_blocked_steps": 75,
+    "target_in_view_steps": 426,
+    "anomalies": [],
+    "stopped_by_wall_clock_cap": false
+  },
+  "collection_wall_clock_seconds": 1.4139
+}

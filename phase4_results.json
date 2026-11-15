@@ -1,0 +1,2546 @@
+{
+  "status": "completed",
+  "unit_tests": {
+    "all_unit_tests_passed": true,
+    "tests_verified": [
+      "first_visit_reproduces_base_argmax_and_float_ties",
+      "counts_increment_only_for_issued_action",
+      "all_three_actions_selected_once_before_second_selection",
+      "post_full_coverage_counts_tracked_before_decision",
+      "mission_change_uses_distinct_key",
+      "episode_reset_clears_all_retained_state"
+    ]
+  },
+  "baseline_verification": {
+    "phase1_weights_sha256": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+    "baseline_93_success_invariant": {
+      "baseline_success_count": 93,
+      "all_baseline_successes_trajectory_identical": true,
+      "divergence_count": 0,
+      "divergences": []
+    }
+  },
+  "phase1_baseline_summary": {
+    "success_count": 93,
+    "timeout_count": 7,
+    "exception_count": 0,
+    "mean_episode_length_all": 9.19,
+    "mean_episode_length_successful_only": 5.0645,
+    "episodes_with_repeated_feature_obs": 7,
+    "episodes_with_repeated_raw_obs": 7,
+    "episodes_with_repeated_pose": 7,
+    "episodes_with_any_blocked_forward": 2,
+    "total_blocked_forward_steps": 118
+  },
+  "phase4_wrapped_summary": {
+    "num_episodes_completed": 100,
+    "stopped_by_wall_clock_cap": false,
+    "success_count": 98,
+    "timeout_count": 2,
+    "exception_count": 0,
+    "mean_episode_length": 7.41,
+    "episodes_with_repeated_feature_obs": 7,
+    "episodes_with_repeated_raw_obs": 7,
+    "episodes_with_obs_alias_without_pose_repeat": 0,
+    "episodes_with_repeated_pose": 7,
+    "episodes_with_any_blocked_forward": 5,
+    "episodes_with_consecutive_blocked_forward_ge2": 0,
+    "total_blocked_forward_steps": 10,
+    "first_pose_cycle_length_histogram": {
+      "1": 2,
+      "2": 1,
+      "6": 1,
+      "8": 3
+    },
+    "pose_cycle_episodes_target_never_visible_in_cycle": 0,
+    "pose_cycle_episodes_target_visible_in_cycle": 7,
+    "intervention_burden": {
+      "episodes_with_at_least_one_override": 7,
+      "episodes_with_override_seeds": [
+        3,
+        15,
+        29,
+        43,
+        50,
+        80,
+        94
+      ],
+      "total_overridden_actions": 77,
+      "total_decisions_all_episodes": 741,
+      "mean_retained_obs_keys_per_episode": 6.54,
+      "peak_retained_obs_keys_in_episode": 42,
+      "peak_retained_obs_keys_seed": 50,
+      "post_full_coverage_decisions_total": 15,
+      "distinct_obs_keys_with_post_full_coverage_decision_total": 8,
+      "distinct_obs_keys_reaching_all_three_ge_1_by_end_total": 19
+    },
+    "mean_episode_length_successful_only": 6.2551,
+    "rescued_vs_phase1_count": 5,
+    "rescued_vs_phase1_seeds": [
+      3,
+      15,
+      29,
+      43,
+      80
+    ],
+    "harmed_vs_phase1_count": 0,
+    "harmed_vs_phase1_seeds": [],
+    "remaining_failure_seeds": [
+      50,
+      94
+    ]
+  },
+  "matched_length_comparisons": {
+    "common_success_count": 93,
+    "phase1_mean_length_on_common": 5.0645,
+    "wrapped_mean_length_on_common": 5.0645,
+    "rescued_episode_lengths_wrapped": {
+      "3": 11,
+      "15": 36,
+      "29": 39,
+      "43": 38,
+      "80": 18
+    }
+  },
+  "focus_seeds_outcomes_and_traces": {
+    "3": {
+      "seed": 3,
+      "mission": "go to the red key",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 1,
+      "phase1_blocked_forward_steps": 62,
+      "wrapped_success": true,
+      "wrapped_truncated": false,
+      "wrapped_exception": null,
+      "wrapped_length": 11,
+      "wrapped_override_steps": 1,
+      "wrapped_retained_obs_keys": 10,
+      "wrapped_post_full_coverage_decisions": 0,
+      "wrapped_distinct_keys_with_post_full_coverage": 0,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 0,
+      "wrapped_blocked_forward_steps": 1,
+      "wrapped_first_pose_cycle": {
+        "start_step": 2,
+        "repeat_step": 3,
+        "cycle_length": 1,
+        "cycle_poses": [
+          [
+            2,
+            1,
+            1
+          ]
+        ],
+        "cycle_actions": [
+          "forward"
+        ],
+        "cycle_base_argmax_actions": [
+          "forward"
+        ],
+        "cycle_target_in_view_flags": [
+          true
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            1,
+            1,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 1,
+          "pose": [
+            2,
+            1,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            2,
+            1,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            2,
+            1,
+            1
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            2,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 5,
+          "pose": [
+            1,
+            1,
+            2
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": false
+        },
+        {
+          "step": 6,
+          "pose": [
+            1,
+            1,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 7,
+          "pose": [
+            1,
+            2,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 8,
+          "pose": [
+            1,
+            3,
+            1
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 9,
+          "pose": [
+            1,
+            3,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 10,
+          "pose": [
+            2,
+            3,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        }
+      ]
+    },
+    "15": {
+      "seed": 15,
+      "mission": "go to the grey box",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 2,
+      "phase1_blocked_forward_steps": 0,
+      "wrapped_success": true,
+      "wrapped_truncated": false,
+      "wrapped_exception": null,
+      "wrapped_length": 36,
+      "wrapped_override_steps": 9,
+      "wrapped_retained_obs_keys": 27,
+      "wrapped_post_full_coverage_decisions": 0,
+      "wrapped_distinct_keys_with_post_full_coverage": 0,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 2,
+      "wrapped_blocked_forward_steps": 1,
+      "wrapped_first_pose_cycle": {
+        "start_step": 5,
+        "repeat_step": 7,
+        "cycle_length": 2,
+        "cycle_poses": [
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            4,
+            3
+          ]
+        ],
+        "cycle_actions": [
+          "right",
+          "left"
+        ],
+        "cycle_base_argmax_actions": [
+          "right",
+          "left"
+        ],
+        "cycle_target_in_view_flags": [
+          true,
+          true
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            5,
+            6,
+            0
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 1,
+          "pose": [
+            5,
+            6,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            5,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            5,
+            4,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            5,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 5,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 6,
+          "pose": [
+            4,
+            4,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 7,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "right",
+          "chosen": "forward",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 8,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "right",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            1
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 9,
+          "pose": [
+            4,
+            4,
+            1
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": false
+        },
+        {
+          "step": 10,
+          "pose": [
+            4,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 11,
+          "pose": [
+            5,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 12,
+          "pose": [
+            6,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": false
+        },
+        {
+          "step": 13,
+          "pose": [
+            6,
+            4,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 14,
+          "pose": [
+            6,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 15,
+          "pose": [
+            5,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        }
+      ]
+    },
+    "29": {
+      "seed": 29,
+      "mission": "go to the green key",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 8,
+      "phase1_blocked_forward_steps": 0,
+      "wrapped_success": true,
+      "wrapped_truncated": false,
+      "wrapped_exception": null,
+      "wrapped_length": 39,
+      "wrapped_override_steps": 8,
+      "wrapped_retained_obs_keys": 30,
+      "wrapped_post_full_coverage_decisions": 1,
+      "wrapped_distinct_keys_with_post_full_coverage": 1,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 1,
+      "wrapped_blocked_forward_steps": 0,
+      "wrapped_first_pose_cycle": {
+        "start_step": 0,
+        "repeat_step": 8,
+        "cycle_length": 8,
+        "cycle_poses": [
+          [
+            4,
+            4,
+            0
+          ],
+          [
+            5,
+            4,
+            0
+          ],
+          [
+            6,
+            4,
+            0
+          ],
+          [
+            6,
+            4,
+            1
+          ],
+          [
+            6,
+            4,
+            2
+          ],
+          [
+            5,
+            4,
+            2
+          ],
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            4,
+            4,
+            3
+          ]
+        ],
+        "cycle_actions": [
+          "forward",
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "forward",
+          "right",
+          "right"
+        ],
+        "cycle_base_argmax_actions": [
+          "forward",
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "forward",
+          "right",
+          "right"
+        ],
+        "cycle_target_in_view_flags": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            4,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 1,
+          "pose": [
+            5,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            6,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            6,
+            4,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            6,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 5,
+          "pose": [
+            5,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 6,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 7,
+          "pose": [
+            4,
+            4,
+            3
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 8,
+          "pose": [
+            4,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 9,
+          "pose": [
+            4,
+            4,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 10,
+          "pose": [
+            4,
+            5,
+            1
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 11,
+          "pose": [
+            4,
+            5,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 12,
+          "pose": [
+            5,
+            5,
+            0
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 13,
+          "pose": [
+            5,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 14,
+          "pose": [
+            5,
+            4,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 15,
+          "pose": [
+            5,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        }
+      ]
+    },
+    "43": {
+      "seed": 43,
+      "mission": "go to the grey ball",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 6,
+      "phase1_blocked_forward_steps": 0,
+      "wrapped_success": true,
+      "wrapped_truncated": false,
+      "wrapped_exception": null,
+      "wrapped_length": 38,
+      "wrapped_override_steps": 12,
+      "wrapped_retained_obs_keys": 25,
+      "wrapped_post_full_coverage_decisions": 1,
+      "wrapped_distinct_keys_with_post_full_coverage": 1,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 2,
+      "wrapped_blocked_forward_steps": 1,
+      "wrapped_first_pose_cycle": {
+        "start_step": 4,
+        "repeat_step": 10,
+        "cycle_length": 6,
+        "cycle_poses": [
+          [
+            4,
+            4,
+            2
+          ],
+          [
+            3,
+            4,
+            2
+          ],
+          [
+            3,
+            4,
+            3
+          ],
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            4,
+            4,
+            0
+          ],
+          [
+            4,
+            4,
+            1
+          ]
+        ],
+        "cycle_actions": [
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "right",
+          "right"
+        ],
+        "cycle_base_argmax_actions": [
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "right",
+          "right"
+        ],
+        "cycle_target_in_view_flags": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            4,
+            5,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 1,
+          "pose": [
+            4,
+            5,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 2,
+          "pose": [
+            4,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            4,
+            4,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 5,
+          "pose": [
+            3,
+            4,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 6,
+          "pose": [
+            3,
+            4,
+            3
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 7,
+          "pose": [
+            3,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 8,
+          "pose": [
+            4,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 9,
+          "pose": [
+            4,
+            4,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 10,
+          "pose": [
+            4,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 11,
+          "pose": [
+            4,
+            4,
+            1
+          ],
+          "base": "right",
+          "chosen": "forward",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 12,
+          "pose": [
+            4,
+            5,
+            1
+          ],
+          "base": "right",
+          "chosen": "forward",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 13,
+          "pose": [
+            4,
+            6,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": false
+        },
+        {
+          "step": 14,
+          "pose": [
+            4,
+            6,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 15,
+          "pose": [
+            4,
+            6,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        }
+      ]
+    },
+    "50": {
+      "seed": 50,
+      "mission": "go to the green box",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 1,
+      "phase1_blocked_forward_steps": 56,
+      "wrapped_success": false,
+      "wrapped_truncated": true,
+      "wrapped_exception": null,
+      "wrapped_length": 64,
+      "wrapped_override_steps": 21,
+      "wrapped_retained_obs_keys": 42,
+      "wrapped_post_full_coverage_decisions": 2,
+      "wrapped_distinct_keys_with_post_full_coverage": 1,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 5,
+      "wrapped_blocked_forward_steps": 3,
+      "wrapped_first_pose_cycle": {
+        "start_step": 8,
+        "repeat_step": 9,
+        "cycle_length": 1,
+        "cycle_poses": [
+          [
+            5,
+            1,
+            2
+          ]
+        ],
+        "cycle_actions": [
+          "forward"
+        ],
+        "cycle_base_argmax_actions": [
+          "forward"
+        ],
+        "cycle_target_in_view_flags": [
+          true
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            6,
+            6,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 1,
+          "pose": [
+            6,
+            6,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            6,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            6,
+            4,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            6,
+            3,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 5,
+          "pose": [
+            6,
+            2,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 6,
+          "pose": [
+            6,
+            1,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 7,
+          "pose": [
+            6,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 8,
+          "pose": [
+            5,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 9,
+          "pose": [
+            5,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 10,
+          "pose": [
+            5,
+            1,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 11,
+          "pose": [
+            5,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            1,
+            0,
+            1
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 12,
+          "pose": [
+            5,
+            1,
+            3
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 13,
+          "pose": [
+            5,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            1,
+            1,
+            1
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 14,
+          "pose": [
+            5,
+            1,
+            2
+          ],
+          "base": "forward",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            1,
+            1,
+            2
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 15,
+          "pose": [
+            5,
+            1,
+            1
+          ],
+          "base": "right",
+          "chosen": "forward",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        }
+      ]
+    },
+    "80": {
+      "seed": 80,
+      "mission": "go to the blue ball",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 8,
+      "phase1_blocked_forward_steps": 0,
+      "wrapped_success": true,
+      "wrapped_truncated": false,
+      "wrapped_exception": null,
+      "wrapped_length": 18,
+      "wrapped_override_steps": 3,
+      "wrapped_retained_obs_keys": 15,
+      "wrapped_post_full_coverage_decisions": 0,
+      "wrapped_distinct_keys_with_post_full_coverage": 0,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 0,
+      "wrapped_blocked_forward_steps": 0,
+      "wrapped_first_pose_cycle": {
+        "start_step": 0,
+        "repeat_step": 8,
+        "cycle_length": 8,
+        "cycle_poses": [
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            3,
+            6,
+            1
+          ],
+          [
+            3,
+            6,
+            2
+          ],
+          [
+            3,
+            6,
+            3
+          ],
+          [
+            3,
+            5,
+            3
+          ],
+          [
+            3,
+            4,
+            3
+          ]
+        ],
+        "cycle_actions": [
+          "right",
+          "forward",
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "forward",
+          "right"
+        ],
+        "cycle_base_argmax_actions": [
+          "right",
+          "forward",
+          "forward",
+          "right",
+          "right",
+          "forward",
+          "forward",
+          "right"
+        ],
+        "cycle_target_in_view_flags": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            3,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 1,
+          "pose": [
+            3,
+            4,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            3,
+            5,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            3,
+            6,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            3,
+            6,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 5,
+          "pose": [
+            3,
+            6,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 6,
+          "pose": [
+            3,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 7,
+          "pose": [
+            3,
+            4,
+            3
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 8,
+          "pose": [
+            3,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "left",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 9,
+          "pose": [
+            3,
+            4,
+            3
+          ],
+          "base": "right",
+          "chosen": "forward",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            1,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 10,
+          "pose": [
+            3,
+            3,
+            3
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 11,
+          "pose": [
+            3,
+            3,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 12,
+          "pose": [
+            3,
+            3,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 13,
+          "pose": [
+            3,
+            4,
+            1
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 14,
+          "pose": [
+            3,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 15,
+          "pose": [
+            2,
+            4,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        }
+      ]
+    },
+    "94": {
+      "seed": 94,
+      "mission": "go to the grey ball",
+      "phase1_success": false,
+      "phase1_length": 64,
+      "phase1_cycle_length": 8,
+      "phase1_blocked_forward_steps": 0,
+      "wrapped_success": false,
+      "wrapped_truncated": true,
+      "wrapped_exception": null,
+      "wrapped_length": 64,
+      "wrapped_override_steps": 23,
+      "wrapped_retained_obs_keys": 34,
+      "wrapped_post_full_coverage_decisions": 11,
+      "wrapped_distinct_keys_with_post_full_coverage": 5,
+      "wrapped_distinct_keys_reaching_all_three_by_end": 9,
+      "wrapped_blocked_forward_steps": 4,
+      "wrapped_first_pose_cycle": {
+        "start_step": 4,
+        "repeat_step": 12,
+        "cycle_length": 8,
+        "cycle_poses": [
+          [
+            2,
+            5,
+            3
+          ],
+          [
+            2,
+            4,
+            3
+          ],
+          [
+            2,
+            4,
+            0
+          ],
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            3,
+            5,
+            2
+          ],
+          [
+            2,
+            5,
+            2
+          ]
+        ],
+        "cycle_actions": [
+          "forward",
+          "right",
+          "forward",
+          "right",
+          "forward",
+          "right",
+          "forward",
+          "right"
+        ],
+        "cycle_base_argmax_actions": [
+          "forward",
+          "right",
+          "forward",
+          "right",
+          "forward",
+          "right",
+          "forward",
+          "right"
+        ],
+        "cycle_target_in_view_flags": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false
+        ]
+      },
+      "wrapped_first_16_steps": [
+        {
+          "step": 0,
+          "pose": [
+            2,
+            5,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 1,
+          "pose": [
+            2,
+            6,
+            1
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 2,
+          "pose": [
+            2,
+            6,
+            0
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 3,
+          "pose": [
+            2,
+            6,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 4,
+          "pose": [
+            2,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 5,
+          "pose": [
+            2,
+            4,
+            3
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 6,
+          "pose": [
+            2,
+            4,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 7,
+          "pose": [
+            3,
+            4,
+            0
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 8,
+          "pose": [
+            3,
+            4,
+            1
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 9,
+          "pose": [
+            3,
+            5,
+            1
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 10,
+          "pose": [
+            3,
+            5,
+            2
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 11,
+          "pose": [
+            2,
+            5,
+            2
+          ],
+          "base": "right",
+          "chosen": "right",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 12,
+          "pose": [
+            2,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "right",
+          "overridden": true,
+          "prior_counts": [
+            0,
+            0,
+            1
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        },
+        {
+          "step": 13,
+          "pose": [
+            2,
+            5,
+            0
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": true
+        },
+        {
+          "step": 14,
+          "pose": [
+            3,
+            5,
+            0
+          ],
+          "base": "left",
+          "chosen": "left",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": true,
+          "target_in_view": true
+        },
+        {
+          "step": 15,
+          "pose": [
+            3,
+            5,
+            3
+          ],
+          "base": "forward",
+          "chosen": "forward",
+          "overridden": false,
+          "prior_counts": [
+            0,
+            0,
+            0
+          ],
+          "front_blocked": false,
+          "target_in_view": false
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "cpu_only": true,
+    "wall_clock_cap_seconds": 300.0,
+    "timing_procedure": "Single synchronous run measuring wall-clock perf_counter() around unwrapped Phase 1 dev 0..99 loop, wrapped dev 0..99 loop, and accumulated time inside wrapper.reset()/wrapper.select_action().",
+    "base_eval_seconds": 0.1828,
+    "wrapped_eval_seconds": 0.165,
+    "wrapper_accumulated_call_seconds": 0.005408,
+    "total_seconds": 0.3584,
+    "completed_within_cap": true
+  }
+}

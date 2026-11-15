@@ -1,0 +1,711 @@
+{
+  "status": "completed",
+  "baseline_verification": {
+    "phase1_weights_sha256": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+    "phase1_dev_reeval_matches_saved": false,
+    "phase1_selected_epoch": 21,
+    "phase1_actual_optimizer_updates": 2520,
+    "phase1_selected_optimizer_step": 882
+  },
+  "schedule_parameters": {
+    "original_train_samples": 2656,
+    "onpolicy_retained_samples": 2669,
+    "combined_train_samples": 5325,
+    "batch_size": 64,
+    "batches_per_combined_epoch_B_comb": 84,
+    "checkpoint_slots": 60,
+    "total_optimizer_updates_U_target": 5040
+  },
+  "onpolicy_student_rollout_summary": {
+    "episodes": 499,
+    "successes": 484,
+    "timeouts": 15
+  },
+  "supervision_cost_report": {
+    "total_advisory_expert_calls": 3502,
+    "calls_outside_student_action_set": 0,
+    "outside_action_breakdown": {},
+    "outside_action_episode_count": 0,
+    "outside_action_episode_seeds_sample": [],
+    "eligible_label_occurrences_before_dedup": 3502,
+    "samples_retained_after_dedup": 2669,
+    "duplicates_removed_by_per_episode_dedup": 833,
+    "retained_samples_already_in_original_train": 2508,
+    "retained_samples_new_feature_action_pairs": 161,
+    "distinct_feature_action_pairs_in_onpolicy": 2506,
+    "distinct_new_feature_action_pairs_added": 161,
+    "distinct_feature_vectors_in_original_train": 2477,
+    "distinct_feature_vectors_in_onpolicy": 2498,
+    "distinct_feature_vectors_in_combined": 2630,
+    "feature_vectors_with_conflicting_expert_labels": {
+      "within_original_train": 7,
+      "within_onpolicy": 8,
+      "across_combined_dataset": 15
+    },
+    "phase2_distinct_cycle_feature_vectors_total": 34,
+    "phase2_cycle_feature_vectors_matched_in_onpolicy": 1,
+    "phase2_cycle_feature_vectors_matched_in_combined": 1,
+    "onpolicy_action_distribution": {
+      "left": 500,
+      "right": 584,
+      "forward": 1585
+    },
+    "onpolicy_front_blocked_count": 446,
+    "onpolicy_target_in_view_count": 2235
+  },
+  "excluded_outside_action_samples": [],
+  "training_reports": {
+    "step_matched_control": {
+      "actual_optimizer_updates": 5040,
+      "target_optimizer_updates": 5040,
+      "checkpoint_interval_updates": 84,
+      "checkpoint_slots_evaluated": 60,
+      "selected_checkpoint_slot": 7,
+      "selected_optimizer_step": 588,
+      "selected_epoch_equivalent": 14.0,
+      "stopped_by_wall_clock_cap": false,
+      "train_metrics_at_selected": {
+        "num_steps": 2656,
+        "cross_entropy": 0.082675,
+        "loss_with_l2": 0.096342,
+        "overall_agreement": 0.970256,
+        "per_action": {
+          "left": {
+            "count": 487,
+            "agreement": 0.907598
+          },
+          "right": {
+            "count": 553,
+            "agreement": 0.965642
+          },
+          "forward": {
+            "count": 1616,
+            "agreement": 0.990718
+          }
+        },
+        "visible_target": {
+          "count": 2235,
+          "agreement": 0.980313
+        },
+        "hidden_target": {
+          "count": 421,
+          "agreement": 0.916865
+        },
+        "blocked_front": {
+          "count": 436,
+          "agreement": 0.990826,
+          "predicted_action_counts": {
+            "left": 190,
+            "right": 246,
+            "forward": 0
+          }
+        }
+      },
+      "val_metrics_at_selected": {
+        "num_steps": 514,
+        "cross_entropy": 0.23953,
+        "loss_with_l2": 0.253197,
+        "overall_agreement": 0.904669,
+        "per_action": {
+          "left": {
+            "count": 94,
+            "agreement": 0.797872
+          },
+          "right": {
+            "count": 109,
+            "agreement": 0.853211
+          },
+          "forward": {
+            "count": 311,
+            "agreement": 0.954984
+          }
+        },
+        "visible_target": {
+          "count": 426,
+          "agreement": 0.938967
+        },
+        "hidden_target": {
+          "count": 88,
+          "agreement": 0.738636
+        },
+        "blocked_front": {
+          "count": 75,
+          "agreement": 0.88,
+          "predicted_action_counts": {
+            "left": 36,
+            "right": 39,
+            "forward": 0
+          }
+        }
+      },
+      "train_subset_metrics_at_selected": {}
+    },
+    "aggregated_dagger": {
+      "actual_optimizer_updates": 5040,
+      "target_optimizer_updates": 5040,
+      "checkpoint_interval_updates": 84,
+      "checkpoint_slots_evaluated": 60,
+      "selected_checkpoint_slot": 12,
+      "selected_optimizer_step": 1008,
+      "selected_epoch_equivalent": 12.0,
+      "stopped_by_wall_clock_cap": false,
+      "train_metrics_at_selected": {
+        "num_steps": 5325,
+        "cross_entropy": 0.067425,
+        "loss_with_l2": 0.083647,
+        "overall_agreement": 0.979906,
+        "per_action": {
+          "left": {
+            "count": 987,
+            "agreement": 0.964539
+          },
+          "right": {
+            "count": 1137,
+            "agreement": 0.963061
+          },
+          "forward": {
+            "count": 3201,
+            "agreement": 0.990628
+          }
+        },
+        "visible_target": {
+          "count": 4470,
+          "agreement": 0.988591
+        },
+        "hidden_target": {
+          "count": 855,
+          "agreement": 0.934503
+        },
+        "blocked_front": {
+          "count": 882,
+          "agreement": 0.993197,
+          "predicted_action_counts": {
+            "left": 395,
+            "right": 487,
+            "forward": 0
+          }
+        }
+      },
+      "val_metrics_at_selected": {
+        "num_steps": 514,
+        "cross_entropy": 0.232125,
+        "loss_with_l2": 0.248348,
+        "overall_agreement": 0.916342,
+        "per_action": {
+          "left": {
+            "count": 94,
+            "agreement": 0.893617
+          },
+          "right": {
+            "count": 109,
+            "agreement": 0.825688
+          },
+          "forward": {
+            "count": 311,
+            "agreement": 0.954984
+          }
+        },
+        "visible_target": {
+          "count": 426,
+          "agreement": 0.953052
+        },
+        "hidden_target": {
+          "count": 88,
+          "agreement": 0.738636
+        },
+        "blocked_front": {
+          "count": 75,
+          "agreement": 0.946667,
+          "predicted_action_counts": {
+            "left": 41,
+            "right": 34,
+            "forward": 0
+          }
+        }
+      },
+      "train_subset_metrics_at_selected": {
+        "original_train_subset": {
+          "num_steps": 2656,
+          "cross_entropy": 0.057567,
+          "loss_with_l2": 0.073789,
+          "overall_agreement": 0.98381,
+          "per_action": {
+            "left": {
+              "count": 487,
+              "agreement": 0.971253
+            },
+            "right": {
+              "count": 553,
+              "agreement": 0.980108
+            },
+            "forward": {
+              "count": 1616,
+              "agreement": 0.988861
+            }
+          },
+          "visible_target": {
+            "count": 2235,
+            "agreement": 0.991499
+          },
+          "hidden_target": {
+            "count": 421,
+            "agreement": 0.942993
+          },
+          "blocked_front": {
+            "count": 436,
+            "agreement": 0.995413,
+            "predicted_action_counts": {
+              "left": 194,
+              "right": 242,
+              "forward": 0
+            }
+          }
+        },
+        "onpolicy_train_subset": {
+          "num_steps": 2669,
+          "cross_entropy": 0.077235,
+          "loss_with_l2": 0.093457,
+          "overall_agreement": 0.976021,
+          "per_action": {
+            "left": {
+              "count": 500,
+              "agreement": 0.958
+            },
+            "right": {
+              "count": 584,
+              "agreement": 0.946918
+            },
+            "forward": {
+              "count": 1585,
+              "agreement": 0.992429
+            }
+          },
+          "visible_target": {
+            "count": 2235,
+            "agreement": 0.985682
+          },
+          "hidden_target": {
+            "count": 434,
+            "agreement": 0.926267
+          },
+          "blocked_front": {
+            "count": 446,
+            "agreement": 0.991031,
+            "predicted_action_counts": {
+              "left": 201,
+              "right": 245,
+              "forward": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "dev_evaluation_summaries": {
+    "phase1_checkpoint": {
+      "num_episodes_completed": 100,
+      "stopped_by_wall_clock_cap": false,
+      "success_count": 93,
+      "timeout_count": 7,
+      "exception_count": 0,
+      "mean_episode_length": 9.19,
+      "episodes_with_repeated_feature_obs": 7,
+      "episodes_with_repeated_raw_obs": 7,
+      "episodes_with_obs_alias_without_pose_repeat": 0,
+      "episodes_with_repeated_pose": 7,
+      "episodes_with_any_blocked_forward": 2,
+      "episodes_with_consecutive_blocked_forward_ge2": 2,
+      "total_blocked_forward_steps": 118,
+      "episodes_with_pose_cycle_length_1": 2,
+      "episodes_with_pose_cycle_length_2": 1,
+      "episodes_with_pose_cycle_length_ge3": 4,
+      "first_pose_cycle_length_histogram": {
+        "1": 2,
+        "2": 1,
+        "6": 1,
+        "8": 3
+      },
+      "pose_cycle_episodes_target_never_visible_in_cycle": 0,
+      "pose_cycle_episodes_target_visible_in_cycle": 7,
+      "mean_episode_length_successful_only": 5.0645,
+      "mean_episode_length_failed_only": 64.0,
+      "rescued_vs_phase1_count": 0,
+      "rescued_vs_phase1_seeds": [],
+      "harmed_vs_phase1_count": 0,
+      "harmed_vs_phase1_seeds": [],
+      "remaining_failure_seeds": [
+        3,
+        15,
+        29,
+        43,
+        50,
+        80,
+        94
+      ],
+      "phase1_failed_7_seeds_outcomes": {
+        "3": {
+          "seed": 3,
+          "mission": "go to the red key",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 62,
+          "cycle_length": 1,
+          "cycle_entry_step": 2,
+          "cycle_repeat_step": 3
+        },
+        "15": {
+          "seed": 15,
+          "mission": "go to the grey box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 2,
+          "cycle_entry_step": 5,
+          "cycle_repeat_step": 7
+        },
+        "29": {
+          "seed": 29,
+          "mission": "go to the green key",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 0,
+          "cycle_repeat_step": 8
+        },
+        "43": {
+          "seed": 43,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 6,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 10
+        },
+        "50": {
+          "seed": 50,
+          "mission": "go to the green box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 56,
+          "cycle_length": 1,
+          "cycle_entry_step": 8,
+          "cycle_repeat_step": 9
+        },
+        "80": {
+          "seed": 80,
+          "mission": "go to the blue ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 0,
+          "cycle_repeat_step": 8
+        },
+        "94": {
+          "seed": 94,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 12
+        }
+      }
+    },
+    "step_matched_control": {
+      "num_episodes_completed": 100,
+      "stopped_by_wall_clock_cap": false,
+      "success_count": 91,
+      "timeout_count": 9,
+      "exception_count": 0,
+      "mean_episode_length": 10.22,
+      "episodes_with_repeated_feature_obs": 9,
+      "episodes_with_repeated_raw_obs": 9,
+      "episodes_with_obs_alias_without_pose_repeat": 1,
+      "episodes_with_repeated_pose": 9,
+      "episodes_with_any_blocked_forward": 1,
+      "episodes_with_consecutive_blocked_forward_ge2": 1,
+      "total_blocked_forward_steps": 62,
+      "episodes_with_pose_cycle_length_1": 1,
+      "episodes_with_pose_cycle_length_2": 1,
+      "episodes_with_pose_cycle_length_ge3": 7,
+      "first_pose_cycle_length_histogram": {
+        "1": 1,
+        "2": 1,
+        "8": 4,
+        "12": 1,
+        "14": 2
+      },
+      "pose_cycle_episodes_target_never_visible_in_cycle": 1,
+      "pose_cycle_episodes_target_visible_in_cycle": 8,
+      "mean_episode_length_successful_only": 4.9011,
+      "mean_episode_length_failed_only": 64.0,
+      "rescued_vs_phase1_count": 0,
+      "rescued_vs_phase1_seeds": [],
+      "harmed_vs_phase1_count": 2,
+      "harmed_vs_phase1_seeds": [
+        40,
+        53
+      ],
+      "remaining_failure_seeds": [
+        3,
+        15,
+        29,
+        40,
+        43,
+        50,
+        53,
+        80,
+        94
+      ],
+      "phase1_failed_7_seeds_outcomes": {
+        "3": {
+          "seed": 3,
+          "mission": "go to the red key",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 62,
+          "cycle_length": 1,
+          "cycle_entry_step": 2,
+          "cycle_repeat_step": 3
+        },
+        "15": {
+          "seed": 15,
+          "mission": "go to the grey box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 12
+        },
+        "29": {
+          "seed": 29,
+          "mission": "go to the green key",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 2,
+          "cycle_entry_step": 5,
+          "cycle_repeat_step": 7
+        },
+        "43": {
+          "seed": 43,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 12
+        },
+        "50": {
+          "seed": 50,
+          "mission": "go to the green box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 12,
+          "cycle_entry_step": 12,
+          "cycle_repeat_step": 24
+        },
+        "80": {
+          "seed": 80,
+          "mission": "go to the blue ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 8,
+          "cycle_entry_step": 0,
+          "cycle_repeat_step": 8
+        },
+        "94": {
+          "seed": 94,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 14,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 18
+        }
+      }
+    },
+    "aggregated_dagger_checkpoint": {
+      "num_episodes_completed": 100,
+      "stopped_by_wall_clock_cap": false,
+      "success_count": 95,
+      "timeout_count": 5,
+      "exception_count": 0,
+      "mean_episode_length": 8.0,
+      "episodes_with_repeated_feature_obs": 5,
+      "episodes_with_repeated_raw_obs": 5,
+      "episodes_with_obs_alias_without_pose_repeat": 0,
+      "episodes_with_repeated_pose": 5,
+      "episodes_with_any_blocked_forward": 0,
+      "episodes_with_consecutive_blocked_forward_ge2": 0,
+      "total_blocked_forward_steps": 0,
+      "episodes_with_pose_cycle_length_1": 0,
+      "episodes_with_pose_cycle_length_2": 2,
+      "episodes_with_pose_cycle_length_ge3": 3,
+      "first_pose_cycle_length_histogram": {
+        "2": 2,
+        "6": 3
+      },
+      "pose_cycle_episodes_target_never_visible_in_cycle": 1,
+      "pose_cycle_episodes_target_visible_in_cycle": 4,
+      "mean_episode_length_successful_only": 5.0526,
+      "mean_episode_length_failed_only": 64.0,
+      "rescued_vs_phase1_count": 3,
+      "rescued_vs_phase1_seeds": [
+        3,
+        29,
+        80
+      ],
+      "harmed_vs_phase1_count": 1,
+      "harmed_vs_phase1_seeds": [
+        88
+      ],
+      "remaining_failure_seeds": [
+        15,
+        43,
+        50,
+        88,
+        94
+      ],
+      "phase1_failed_7_seeds_outcomes": {
+        "3": {
+          "seed": 3,
+          "mission": "go to the red key",
+          "success": true,
+          "truncated": false,
+          "exception": null,
+          "episode_length": 10,
+          "blocked_forward_steps": 0,
+          "cycle_length": null,
+          "cycle_entry_step": null,
+          "cycle_repeat_step": null
+        },
+        "15": {
+          "seed": 15,
+          "mission": "go to the grey box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 6,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 10
+        },
+        "29": {
+          "seed": 29,
+          "mission": "go to the green key",
+          "success": true,
+          "truncated": false,
+          "exception": null,
+          "episode_length": 5,
+          "blocked_forward_steps": 0,
+          "cycle_length": null,
+          "cycle_entry_step": null,
+          "cycle_repeat_step": null
+        },
+        "43": {
+          "seed": 43,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 6,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 10
+        },
+        "50": {
+          "seed": 50,
+          "mission": "go to the green box",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 2,
+          "cycle_entry_step": 10,
+          "cycle_repeat_step": 12
+        },
+        "80": {
+          "seed": 80,
+          "mission": "go to the blue ball",
+          "success": true,
+          "truncated": false,
+          "exception": null,
+          "episode_length": 6,
+          "blocked_forward_steps": 0,
+          "cycle_length": null,
+          "cycle_entry_step": null,
+          "cycle_repeat_step": null
+        },
+        "94": {
+          "seed": 94,
+          "mission": "go to the grey ball",
+          "success": false,
+          "truncated": true,
+          "exception": null,
+          "episode_length": 64,
+          "blocked_forward_steps": 0,
+          "cycle_length": 6,
+          "cycle_entry_step": 4,
+          "cycle_repeat_step": 10
+        }
+      }
+    },
+    "common_solved_subset_lengths": {
+      "count": 90,
+      "phase1_mean_length": 4.6667,
+      "control_mean_length": 4.8333,
+      "dagger_mean_length": 4.8111
+    }
+  },
+  "runtime": {
+    "cpu_only": true,
+    "wall_clock_cap_seconds": 300.0,
+    "collection_seconds": 1.6078,
+    "control_training_seconds": 1.5043,
+    "dagger_training_seconds": 1.2758,
+    "eval_seconds": 0.529,
+    "total_seconds": 4.9738,
+    "completed_within_cap": true
+  }
+}

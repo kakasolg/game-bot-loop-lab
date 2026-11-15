@@ -1,0 +1,59 @@
+# Python virtual environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local IDE, assistant, and OS files
+.vscode/
+.idea/
+.vs/
+.gemini/
+.claude/
+.cursor/
+.codex/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Temporary and backup files
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+*.orig
+
+# Future reproduction and new experiment outputs
+repro_runs/
+reproduction_outputs/
+experiments/*/outputs/
+experiments/*/runs/
+
+# Private local logs and transcripts (keep published *.jsonl evaluation files intact)
+*.log
+local_notes/
+transcript*.jsonl
+*session*.jsonl
+
+# Local preservation originals containing machine-local paths (sanitized public copies live in docs/reports/)
+/phase0a_env_inspection.json
+/phase1_report.md
+/phase2_report.md
+/phase3_report.md
+/phase4_report.md
+/phase5_confirmation_report.md
+
+# Optional large/regenerable binary demo and Phase 3 weight archives (excluded by default; keep required phase1_weights.npz)
+/phase1_demos.npz
+/phase1_demos_filtered.npz
+/phase3_demos_dagger1.npz
+/phase3_weights_control.npz
+/phase3_weights_dagger.npz

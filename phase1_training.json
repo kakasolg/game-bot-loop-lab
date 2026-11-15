@@ -1,0 +1,509 @@
+{
+  "selected_epoch": 21,
+  "epochs_completed": 60,
+  "stopped_by_wall_clock_cap": false,
+  "train_metrics_at_selected": {
+    "num_steps": 2656,
+    "cross_entropy": 0.056288,
+    "loss_with_l2": 0.072132,
+    "overall_agreement": 0.983057,
+    "per_action": {
+      "left": {
+        "count": 487,
+        "agreement": 0.979466
+      },
+      "right": {
+        "count": 553,
+        "agreement": 0.969259
+      },
+      "forward": {
+        "count": 1616,
+        "agreement": 0.988861
+      }
+    },
+    "visible_target": {
+      "count": 2235,
+      "agreement": 0.991499,
+      "cross_entropy": 0.032952
+    },
+    "hidden_target": {
+      "count": 421,
+      "agreement": 0.938242,
+      "cross_entropy": 0.180172
+    },
+    "blocked_front": {
+      "count": 436,
+      "agreement": 0.995413,
+      "predicted_action_counts": {
+        "left": 194,
+        "right": 242,
+        "forward": 0
+      },
+      "cross_entropy": 0.029328
+    }
+  },
+  "val_metrics_at_selected": {
+    "num_steps": 514,
+    "cross_entropy": 0.235611,
+    "loss_with_l2": 0.251455,
+    "overall_agreement": 0.920233,
+    "per_action": {
+      "left": {
+        "count": 94,
+        "agreement": 0.882979
+      },
+      "right": {
+        "count": 109,
+        "agreement": 0.853211
+      },
+      "forward": {
+        "count": 311,
+        "agreement": 0.954984
+      }
+    },
+    "visible_target": {
+      "count": 426,
+      "agreement": 0.955399,
+      "cross_entropy": 0.130651
+    },
+    "hidden_target": {
+      "count": 88,
+      "agreement": 0.75,
+      "cross_entropy": 0.743711
+    },
+    "blocked_front": {
+      "count": 75,
+      "agreement": 0.933333,
+      "predicted_action_counts": {
+        "left": 40,
+        "right": 35,
+        "forward": 0
+      },
+      "cross_entropy": 0.148781
+    }
+  },
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "train_ce": 0.521298,
+      "train_agreement": 0.797063,
+      "val_ce": 0.57036,
+      "val_agreement": 0.766537
+    },
+    {
+      "epoch": 2,
+      "train_ce": 0.317841,
+      "train_agreement": 0.919804,
+      "val_ce": 0.381095,
+      "val_agreement": 0.883268
+    },
+    {
+      "epoch": 3,
+      "train_ce": 0.202304,
+      "train_agreement": 0.939759,
+      "val_ce": 0.280027,
+      "val_agreement": 0.894942
+    },
+    {
+      "epoch": 4,
+      "train_ce": 0.173047,
+      "train_agreement": 0.946536,
+      "val_ce": 0.27172,
+      "val_agreement": 0.898833
+    },
+    {
+      "epoch": 5,
+      "train_ce": 0.169445,
+      "train_agreement": 0.944654,
+      "val_ce": 0.271614,
+      "val_agreement": 0.900778
+    },
+    {
+      "epoch": 6,
+      "train_ce": 0.1675,
+      "train_agreement": 0.934111,
+      "val_ce": 0.286619,
+      "val_agreement": 0.873541
+    },
+    {
+      "epoch": 7,
+      "train_ce": 0.125424,
+      "train_agreement": 0.957078,
+      "val_ce": 0.245818,
+      "val_agreement": 0.894942
+    },
+    {
+      "epoch": 8,
+      "train_ce": 0.119876,
+      "train_agreement": 0.955196,
+      "val_ce": 0.250362,
+      "val_agreement": 0.898833
+    },
+    {
+      "epoch": 9,
+      "train_ce": 0.124325,
+      "train_agreement": 0.956325,
+      "val_ce": 0.250269,
+      "val_agreement": 0.898833
+    },
+    {
+      "epoch": 10,
+      "train_ce": 0.17088,
+      "train_agreement": 0.924322,
+      "val_ce": 0.313047,
+      "val_agreement": 0.889105
+    },
+    {
+      "epoch": 11,
+      "train_ce": 0.136573,
+      "train_agreement": 0.945783,
+      "val_ce": 0.297087,
+      "val_agreement": 0.900778
+    },
+    {
+      "epoch": 12,
+      "train_ce": 0.098383,
+      "train_agreement": 0.972892,
+      "val_ce": 0.261602,
+      "val_agreement": 0.929961
+    },
+    {
+      "epoch": 13,
+      "train_ce": 0.102653,
+      "train_agreement": 0.964985,
+      "val_ce": 0.248336,
+      "val_agreement": 0.896887
+    },
+    {
+      "epoch": 14,
+      "train_ce": 0.082675,
+      "train_agreement": 0.970256,
+      "val_ce": 0.23953,
+      "val_agreement": 0.904669
+    },
+    {
+      "epoch": 15,
+      "train_ce": 0.072106,
+      "train_agreement": 0.980422,
+      "val_ce": 0.239573,
+      "val_agreement": 0.910506
+    },
+    {
+      "epoch": 16,
+      "train_ce": 0.080028,
+      "train_agreement": 0.973645,
+      "val_ce": 0.263446,
+      "val_agreement": 0.900778
+    },
+    {
+      "epoch": 17,
+      "train_ce": 0.063026,
+      "train_agreement": 0.982304,
+      "val_ce": 0.237238,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 18,
+      "train_ce": 0.07033,
+      "train_agreement": 0.976657,
+      "val_ce": 0.26032,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 19,
+      "train_ce": 0.068168,
+      "train_agreement": 0.97741,
+      "val_ce": 0.254709,
+      "val_agreement": 0.906615
+    },
+    {
+      "epoch": 20,
+      "train_ce": 0.069404,
+      "train_agreement": 0.974021,
+      "val_ce": 0.254263,
+      "val_agreement": 0.90856
+    },
+    {
+      "epoch": 21,
+      "train_ce": 0.056288,
+      "train_agreement": 0.983057,
+      "val_ce": 0.235611,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 22,
+      "train_ce": 0.072678,
+      "train_agreement": 0.972139,
+      "val_ce": 0.274243,
+      "val_agreement": 0.894942
+    },
+    {
+      "epoch": 23,
+      "train_ce": 0.052367,
+      "train_agreement": 0.984187,
+      "val_ce": 0.255239,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 24,
+      "train_ce": 0.047184,
+      "train_agreement": 0.987199,
+      "val_ce": 0.252526,
+      "val_agreement": 0.918288
+    },
+    {
+      "epoch": 25,
+      "train_ce": 0.04019,
+      "train_agreement": 0.988705,
+      "val_ce": 0.249048,
+      "val_agreement": 0.910506
+    },
+    {
+      "epoch": 26,
+      "train_ce": 0.038118,
+      "train_agreement": 0.989834,
+      "val_ce": 0.248769,
+      "val_agreement": 0.924125
+    },
+    {
+      "epoch": 27,
+      "train_ce": 0.049852,
+      "train_agreement": 0.98381,
+      "val_ce": 0.275699,
+      "val_agreement": 0.922179
+    },
+    {
+      "epoch": 28,
+      "train_ce": 0.038618,
+      "train_agreement": 0.989081,
+      "val_ce": 0.264811,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 29,
+      "train_ce": 0.035446,
+      "train_agreement": 0.990587,
+      "val_ce": 0.261713,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 30,
+      "train_ce": 0.037644,
+      "train_agreement": 0.990964,
+      "val_ce": 0.2789,
+      "val_agreement": 0.922179
+    },
+    {
+      "epoch": 31,
+      "train_ce": 0.036663,
+      "train_agreement": 0.989834,
+      "val_ce": 0.264483,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 32,
+      "train_ce": 0.039207,
+      "train_agreement": 0.986822,
+      "val_ce": 0.268613,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 33,
+      "train_ce": 0.03914,
+      "train_agreement": 0.989081,
+      "val_ce": 0.289896,
+      "val_agreement": 0.90856
+    },
+    {
+      "epoch": 34,
+      "train_ce": 0.033092,
+      "train_agreement": 0.992093,
+      "val_ce": 0.265864,
+      "val_agreement": 0.922179
+    },
+    {
+      "epoch": 35,
+      "train_ce": 0.033717,
+      "train_agreement": 0.989834,
+      "val_ce": 0.284498,
+      "val_agreement": 0.910506
+    },
+    {
+      "epoch": 36,
+      "train_ce": 0.025922,
+      "train_agreement": 0.994352,
+      "val_ce": 0.271755,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 37,
+      "train_ce": 0.027738,
+      "train_agreement": 0.993976,
+      "val_ce": 0.278678,
+      "val_agreement": 0.906615
+    },
+    {
+      "epoch": 38,
+      "train_ce": 0.02349,
+      "train_agreement": 0.994352,
+      "val_ce": 0.278979,
+      "val_agreement": 0.918288
+    },
+    {
+      "epoch": 39,
+      "train_ce": 0.031828,
+      "train_agreement": 0.990964,
+      "val_ce": 0.295909,
+      "val_agreement": 0.912451
+    },
+    {
+      "epoch": 40,
+      "train_ce": 0.024586,
+      "train_agreement": 0.995105,
+      "val_ce": 0.272413,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 41,
+      "train_ce": 0.023185,
+      "train_agreement": 0.993223,
+      "val_ce": 0.262162,
+      "val_agreement": 0.933852
+    },
+    {
+      "epoch": 42,
+      "train_ce": 0.02191,
+      "train_agreement": 0.994729,
+      "val_ce": 0.276714,
+      "val_agreement": 0.90856
+    },
+    {
+      "epoch": 43,
+      "train_ce": 0.019898,
+      "train_agreement": 0.995482,
+      "val_ce": 0.284292,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 44,
+      "train_ce": 0.027754,
+      "train_agreement": 0.99134,
+      "val_ce": 0.293788,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 45,
+      "train_ce": 0.018232,
+      "train_agreement": 0.996235,
+      "val_ce": 0.276737,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 46,
+      "train_ce": 0.021807,
+      "train_agreement": 0.994352,
+      "val_ce": 0.28758,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 47,
+      "train_ce": 0.022118,
+      "train_agreement": 0.995482,
+      "val_ce": 0.278081,
+      "val_agreement": 0.910506
+    },
+    {
+      "epoch": 48,
+      "train_ce": 0.017977,
+      "train_agreement": 0.995482,
+      "val_ce": 0.284256,
+      "val_agreement": 0.924125
+    },
+    {
+      "epoch": 49,
+      "train_ce": 0.022028,
+      "train_agreement": 0.994352,
+      "val_ce": 0.288628,
+      "val_agreement": 0.924125
+    },
+    {
+      "epoch": 50,
+      "train_ce": 0.018711,
+      "train_agreement": 0.995105,
+      "val_ce": 0.277396,
+      "val_agreement": 0.922179
+    },
+    {
+      "epoch": 51,
+      "train_ce": 0.02065,
+      "train_agreement": 0.994729,
+      "val_ce": 0.263646,
+      "val_agreement": 0.924125
+    },
+    {
+      "epoch": 52,
+      "train_ce": 0.017391,
+      "train_agreement": 0.996988,
+      "val_ce": 0.27831,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 53,
+      "train_ce": 0.031041,
+      "train_agreement": 0.989834,
+      "val_ce": 0.303007,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 54,
+      "train_ce": 0.022226,
+      "train_agreement": 0.992846,
+      "val_ce": 0.282793,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 55,
+      "train_ce": 0.020177,
+      "train_agreement": 0.995105,
+      "val_ce": 0.283733,
+      "val_agreement": 0.916342
+    },
+    {
+      "epoch": 56,
+      "train_ce": 0.026458,
+      "train_agreement": 0.99247,
+      "val_ce": 0.296265,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 57,
+      "train_ce": 0.016613,
+      "train_agreement": 0.996988,
+      "val_ce": 0.28055,
+      "val_agreement": 0.920233
+    },
+    {
+      "epoch": 58,
+      "train_ce": 0.022053,
+      "train_agreement": 0.993976,
+      "val_ce": 0.29857,
+      "val_agreement": 0.914397
+    },
+    {
+      "epoch": 59,
+      "train_ce": 0.018582,
+      "train_agreement": 0.994352,
+      "val_ce": 0.298595,
+      "val_agreement": 0.906615
+    },
+    {
+      "epoch": 60,
+      "train_ce": 0.017493,
+      "train_agreement": 0.995858,
+      "val_ce": 0.290332,
+      "val_agreement": 0.920233
+    }
+  ],
+  "selection_reason": "Epoch 21 selected by lowest val_cross_entropy (0.235611) under lowest_val_cross_entropy_tiebreak_val_agreement_then_earliest_epoch.",
+  "training_wall_clock_seconds": 0.6319
+}

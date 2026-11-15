@@ -1,0 +1,50 @@
+{
+  "env_id": "BabyAI-GoToLocal-v0",
+  "allowed_actions": [0, 1, 2],
+  "action_names": ["left", "right", "forward"],
+  "feature_encoding": {
+    "description": "Engineered task-relative egocentric encoding from current obs['image'] (7x7x3) and obs['mission'] only; NOT equivalent to original text representation.",
+    "grid_shape": [7, 7],
+    "cell_channels": ["unseen", "empty", "wall", "target_match", "non_target_object"],
+    "extra_indicators": ["front_blocked", "target_in_view"],
+    "input_dim": 247,
+    "uses_direction": false,
+    "uses_history": false,
+    "uses_global_coords": false
+  },
+  "architecture": {
+    "type": "numpy_mlp_1_hidden",
+    "input_dim": 247,
+    "hidden_dim": 64,
+    "activation": "relu",
+    "output_dim": 3,
+    "init_seed": 42
+  },
+  "training": {
+    "loss": "cross_entropy_plus_l2",
+    "l2_weight_decay": 0.0001,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "eps": 1e-08,
+    "batch_size": 64,
+    "max_epochs": 60,
+    "shuffle_seed": 42,
+    "checkpoint_selection_rule": "lowest_val_cross_entropy_tiebreak_val_agreement_then_earliest_epoch"
+  },
+  "seeds": {
+    "train": {"start": 10000, "end_inclusive": 10499, "count": 500},
+    "val": {"start": 20000, "end_inclusive": 20099, "count": 100},
+    "dev_eval": {"start": 0, "end_inclusive": 99, "count": 100},
+    "reserved_confirmation": {"start": 30000, "end_inclusive": 30199, "count": 200, "untouched": true}
+  },
+  "evaluation": {
+    "policy_rule": "deterministic_argmax",
+    "max_steps_env_default": 64
+  },
+  "limits": {
+    "cpu_only": true,
+    "combined_wall_clock_cap_seconds": 300.0
+  }
+}

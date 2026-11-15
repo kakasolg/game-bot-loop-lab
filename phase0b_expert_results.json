@@ -1,0 +1,665 @@
+{
+  "summary": {
+    "env_id": "BabyAI-GoToLocal-v0",
+    "seed_rule": "fixed pre-registered development seeds 0..19",
+    "num_episodes": 20,
+    "success_count": 20,
+    "timeout_count": 0,
+    "exception_count": 0,
+    "episodes_with_unexpected_actions": 0,
+    "mean_episode_length": 4.55,
+    "min_episode_length": 1,
+    "max_episode_length": 11,
+    "aggregate_action_counts": {
+      "forward": 56,
+      "left": 13,
+      "right": 22
+    },
+    "wall_clock_seconds": 0.0395
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "mission": "go to the green ball",
+      "target_desc": "green ball",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 2,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.971875,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        2
+      ],
+      "executed_actions": [
+        2,
+        2
+      ],
+      "action_counts": {
+        "forward": 2
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 1,
+      "mission": "go to the purple box",
+      "target_desc": "purple box",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 2,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.971875,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        0
+      ],
+      "executed_actions": [
+        2,
+        0
+      ],
+      "action_counts": {
+        "forward": 1,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 2,
+      "mission": "go to the grey ball",
+      "target_desc": "grey ball",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 6,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.915625,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "executed_actions": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "action_counts": {
+        "right": 2,
+        "forward": 4
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 3,
+      "mission": "go to the red key",
+      "target_desc": "red key",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 6,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.915625,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "executed_actions": [
+        1,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "action_counts": {
+        "right": 1,
+        "forward": 4,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 4,
+      "mission": "go to the yellow ball",
+      "target_desc": "yellow ball",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 5,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.929688,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "executed_actions": [
+        1,
+        2,
+        1,
+        2,
+        0
+      ],
+      "action_counts": {
+        "right": 2,
+        "forward": 2,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 5,
+      "mission": "go to a grey key",
+      "target_desc": "grey key",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 5,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.929688,
+      "exception": null,
+      "suggested_actions": [
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "executed_actions": [
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "action_counts": {
+        "left": 2,
+        "forward": 2,
+        "right": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 6,
+      "mission": "go to the red box",
+      "target_desc": "red box",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 7,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.901563,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "executed_actions": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "action_counts": {
+        "right": 3,
+        "forward": 4
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 7,
+      "mission": "go to a purple ball",
+      "target_desc": "purple ball",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 1,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.985938,
+      "exception": null,
+      "suggested_actions": [
+        2
+      ],
+      "executed_actions": [
+        2
+      ],
+      "action_counts": {
+        "forward": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 8,
+      "mission": "go to the blue key",
+      "target_desc": "blue key",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 3,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.957812,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        2,
+        0
+      ],
+      "executed_actions": [
+        2,
+        2,
+        0
+      ],
+      "action_counts": {
+        "forward": 2,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 9,
+      "mission": "go to the green key",
+      "target_desc": "green key",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 2,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.971875,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        1
+      ],
+      "executed_actions": [
+        2,
+        1
+      ],
+      "action_counts": {
+        "forward": 1,
+        "right": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 10,
+      "mission": "go to a red ball",
+      "target_desc": "red ball",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 5,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.929688,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "executed_actions": [
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "action_counts": {
+        "right": 2,
+        "forward": 3
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 11,
+      "mission": "go to the grey key",
+      "target_desc": "grey key",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 6,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.915625,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "executed_actions": [
+        1,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "action_counts": {
+        "right": 2,
+        "forward": 4
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 12,
+      "mission": "go to the grey box",
+      "target_desc": "grey box",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 6,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.915625,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        2
+      ],
+      "executed_actions": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        2
+      ],
+      "action_counts": {
+        "right": 3,
+        "forward": 3
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 13,
+      "mission": "go to a red ball",
+      "target_desc": "red ball",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 4,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.94375,
+      "exception": null,
+      "suggested_actions": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "executed_actions": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "action_counts": {
+        "left": 2,
+        "forward": 2
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 14,
+      "mission": "go to the grey box",
+      "target_desc": "grey box",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 7,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.901563,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1
+      ],
+      "executed_actions": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1
+      ],
+      "action_counts": {
+        "right": 3,
+        "forward": 4
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 15,
+      "mission": "go to the grey box",
+      "target_desc": "grey box",
+      "matching_targets_count": 1,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 11,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.845313,
+      "exception": null,
+      "suggested_actions": [
+        0,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "executed_actions": [
+        0,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "action_counts": {
+        "left": 3,
+        "forward": 7,
+        "right": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 16,
+      "mission": "go to a red ball",
+      "target_desc": "red ball",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 5,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.929688,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "executed_actions": [
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "action_counts": {
+        "forward": 4,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 17,
+      "mission": "go to a purple key",
+      "target_desc": "purple key",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 4,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.94375,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "executed_actions": [
+        2,
+        0,
+        2,
+        2
+      ],
+      "action_counts": {
+        "forward": 3,
+        "left": 1
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 18,
+      "mission": "go to a red box",
+      "target_desc": "red box",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 2,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.971875,
+      "exception": null,
+      "suggested_actions": [
+        2,
+        2
+      ],
+      "executed_actions": [
+        2,
+        2
+      ],
+      "action_counts": {
+        "forward": 2
+      },
+      "unexpected_actions": []
+    },
+    {
+      "seed": 19,
+      "mission": "go to a purple box",
+      "target_desc": "purple box",
+      "matching_targets_count": 2,
+      "object_count": 8,
+      "max_steps": 64,
+      "episode_length": 2,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "total_reward": 0.971875,
+      "exception": null,
+      "suggested_actions": [
+        1,
+        2
+      ],
+      "executed_actions": [
+        1,
+        2
+      ],
+      "action_counts": {
+        "right": 1,
+        "forward": 1
+      },
+      "unexpected_actions": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "original_archive": "phase1_demos.npz",
+  "filtered_dataset": "phase1_demos_filtered.npz",
+  "provenance_verified_exact_match_to_original": true,
+  "excluded_episodes": [
+    {
+      "seed": 10462,
+      "reason": "The expert proposed pickup, which is outside the student's allowed action set {left, right, forward}.",
+      "removed_sample_count": 1,
+      "removed_sample_steps": [
+        0
+      ]
+    }
+  ],
+  "train": {
+    "original_episodes_attempted": 500,
+    "retained_episodes": 499,
+    "original_sample_count": 2657,
+    "removed_sample_count": 1,
+    "filtered_sample_count": 2656,
+    "remaining_excluded_samples": 0,
+    "action_counts": {
+      "forward": 1616,
+      "left": 487,
+      "right": 553
+    },
+    "front_blocked_samples": 436,
+    "target_in_view_samples": 2235
+  },
+  "val": {
+    "retained_episodes": 100,
+    "sample_count": 514,
+    "unchanged_from_original": true,
+    "action_counts": {
+      "left": 94,
+      "forward": 311,
+      "right": 109
+    },
+    "front_blocked_samples": 75,
+    "target_in_view_samples": 426
+  }
+}
