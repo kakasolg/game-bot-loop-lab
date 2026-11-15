@@ -11,6 +11,22 @@ Thank you for looking closely at this project. Replications, counterexamples, si
 
 ---
 
+## Open Questions
+
+These questions remain open and unestablished here (they are practical gaps to test, not claims of novelty):
+
+1. **Is action masking enough?**
+   Would excluding observably blocked actions achieve similar gains to the action-count wrapper?
+   This comparison has not been evaluated. See [Issue Brief 3](contributions/03_simpler_escape_baselines.md) and the [deferred note in STATUS.md](STATUS.md#deferred-research-question-execution-layer-safeguards-vs-reaction-latency).
+2. **When is revisiting useful?**
+   Can an execution layer distinguish an ineffective loop from legitimate backtracking without privileged state?
+   Successful repeated-observation trajectories remain untested. See [Issue Brief 2](contributions/02_harmful_legitimate_revisit.md).
+3. **Does it fit a real-time action budget?**
+   Can the benefit be retained within an observation-to-action latency budget, including tail latency and missed deadlines?
+   The existing toy-environment timings do not answer this. See the [deferred latency note in STATUS.md](STATUS.md#deferred-research-question-execution-layer-safeguards-vs-reaction-latency).
+
+---
+
 ## 1. Reporting a Reproduction
 
 Use [Issue Brief 1](contributions/01_reproduce_published_result.md) as a guide and include:

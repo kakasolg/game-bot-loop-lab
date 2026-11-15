@@ -34,7 +34,27 @@ Whether the wrapper harms legitimate revisits remains untested, and this study d
 - **Illustrative seed-3 trace ([4-frame PNG strip](demo/seed3_keyframes.png), [demo metadata](demo/seed3_demo_metadata.json)):** Baseline enters a blocked-forward loop at step `2` and times out at `64`; Wrapped overrides `forward -> right` once at `0`-indexed decision step `3` (`prior_counts = [0, 0, 1]`) and finishes in `11` steps. Not a confirmation-set recording or effect-size estimate.
 - **Model & task scope:** Evaluates one frozen `247 -> 64 (ReLU) -> 3` NumPy MLP (`phase1_weights.npz`) in discrete [`BabyAI-GoToLocal-v0`](https://minigrid.farama.org/environments/babyai/goto/), relying on exact byte-identical MiniGrid observations. Zero of `181` baseline-successful confirmation runs repeated a raw observation (`0` overrides on baseline wins).
 - **Training provenance, provenance note & engineering cost:** [`phase1_weights.npz`](phase1_weights.npz) was pre-trained offline on `499` `BabyAIBot` demonstrations (`2,656` filtered samples, seeds `10000..10499`, epoch `21` selected on `20000..20099`; [Public Phase 1 Report](docs/reports/phase1_report.md)). The Phase 4 wrapper evaluation and Phase 5 confirmation used the original frozen Phase 1 checkpoint, with no additional expert queries or retraining. Phase 3 was a separate exploratory retraining experiment (DAgger-1 reached `95/100` on dev `0..99` vs. `93/100` baseline and `98/100` wrapped, and was excluded from confirmation; [Phase 3](docs/reports/phase3_report.md), [Phase 4](docs/reports/phase4_report.md)). **Human development cost was not measured**, and Confirmation reflects one completed evaluation after fixing a pre-flight `NameError` (`gym.__version__`, Section 7 of [Public Phase 5 Report](docs/reports/phase5_confirmation_report.md)). Google Antigravity assisted development.
-- **More ways to contribute:** [Brief 1: Reproduce the result](contributions/01_reproduce_published_result.md) · [Brief 3: Simpler escape baselines](contributions/03_simpler_escape_baselines.md) · [Contributing Guide](CONTRIBUTING.md)
+- **More ways to contribute & open questions:** Three questions remain open here—[is action masking enough?](CONTRIBUTING.md#open-questions) ([Brief 3](contributions/03_simpler_escape_baselines.md)), [when is revisiting useful?](contributions/02_harmful_legitimate_revisit.md), and [does it fit a real-time action budget?](STATUS.md#deferred-research-question-execution-layer-safeguards-vs-reaction-latency)—alongside [reproducing the published result](contributions/01_reproduce_published_result.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Minimal Wrapper Interface
+
+```python
+from external_wrapper import ExternalObservationCountWrapper
+
+wrapper = ExternalObservationCountWrapper()
+obs, _ = env.reset()          # placeholder BabyAI/MiniGrid environment
+wrapper.reset()               # clear episode-local action counts
+
+terminated = truncated = False
+while not (terminated or truncated):
+    probs = policy_probs(obs) # placeholder frozen policy -> finite np.ndarray, shape (3,)
+    action, _ = wrapper.select_action(obs["image"], obs["mission"], probs)
+    obs, _, terminated, truncated, _ = env.step(action)
+```
+
+- The current implementation assumes exactly three discrete actions: `0` (`left`), `1` (`right`), `2` (`forward`).
+- Observation keys require exact `(image.tobytes(), str(mission))` matching; MiniGrid's `obs["image"]` array holds symbolic object/color/state data, not RGB pixels.
+- Applying the idea elsewhere requires choosing an observation key, action mapping, and reset policy; this is not a drop-in Unity/Unreal integration.
 
 ---
 
