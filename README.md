@@ -82,6 +82,10 @@ uv pip install --python .venv/Scripts/python.exe --no-build -r requirements.txt
 
 A separate Godot/Laya playground lets you play a BabyAI-style room and inspect recorded Laya failures. It does not use this repository’s NumPy policy or action-history wrapper, and it is not the source of the 181/200 → 196/200 result.
 
+[![Godot/Laya BabyAI playground showing the Stuck example room and AI observation/action panel](demo/laya_playground.png)](https://mokaflow.itch.io/babyai-laya-an-ai-in-the-room)
+
+*Play the separate Godot/Laya playground. AI playback is prerecorded; this is not the implementation behind the benchmark above.*
+
 [Play the separate Laya demo](https://mokaflow.itch.io/babyai-laya-an-ai-in-the-room)
 
 ---
