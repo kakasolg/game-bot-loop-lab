@@ -1,0 +1,76 @@
+{
+  "plan_version": "action_mask_ablation_v1",
+  "plan_doc": "docs/action_mask_experiment_plan.md",
+  "research_question": "On BabyAI-GoToLocal-v0 with the frozen Phase 1 policy, can a stateless current-observation blocked-forward mask explain the completion improvement of ExternalObservationCountWrapper, or does episode-local observation-count memory provide additional benefit beyond masking?",
+  "environment": {
+    "env_id": "BabyAI-GoToLocal-v0",
+    "max_steps": 64,
+    "student_allowed_actions": [0, 1, 2],
+    "student_action_names": ["left", "right", "forward"],
+    "deterministic_reset": true
+  },
+  "mask_rule": {
+    "name": "blocked_forward_mask_option1_target_exempt",
+    "variant": "Option 1: exclude forward (2) iff obs['image'][3, 5] is impassable and does NOT match mission (color, type)",
+    "public_fields_read": ["obs['image'][3, 5, :]", "obs['mission']", "probs"],
+    "selection_rule": "min(allowed_actions, key=lambda a: (-float(probs[a]), a))",
+    "empty_mask_fallback": "int(np.argmax(probs)) with fallback counter increment",
+    "application_cadence": "every_decision_step"
+  },
+  "arms": {
+    "A": "Frozen Phase 1 policy baseline (argmax over {0, 1, 2}, stateless)",
+    "B": "Frozen Phase 1 policy + blocked_forward_mask_option1_target_exempt (stateless)",
+    "C": "Frozen Phase 1 policy + unchanged ExternalObservationCountWrapper (episode-local memory, reset() per episode)"
+  },
+  "seeds": {
+    "dev_validation": {"start": 0, "end_inclusive": 99, "count": 100},
+    "public_30000_30199_replay_excluded": true,
+    "confirmation": {"start": 50000, "end_inclusive": 50499, "count": 500}
+  },
+  "statistical_protocol": {
+    "primary_outcome": "binary_episode_success (terminated and total_reward > 0.0 and exception is None)",
+    "primary_comparison": "C_vs_B (delta = rate(C) - rate(B))",
+    "primary_tests": ["newcombe_1998_method10_paired_95_ci", "exact_two_sided_mcnemar_binomial (alpha=0.05)"],
+    "secondary_exploratory_comparisons": ["B_vs_A", "C_vs_A"],
+    "supplementary_familywise_adjustment": "holm_bonferroni_3_contrasts (clearly separated from primary test)",
+    "early_stopping": false,
+    "safety_wall_clock_cap_seconds": 300.0
+  },
+  "trace_selection_rule": {
+    "max_per_stratum": 3,
+    "max_total_seeds": 15,
+    "seed_order": "ascending",
+    "strata_priority": [
+      "regressions (A=1 and (B=0 or C=0))",
+      "A0_B1_C1 (rescued by both B and C)",
+      "A0_B0_C1 (B failed, C rescued)",
+      "A0_B1_C0 (B rescued, C failed)",
+      "A0_B0_C0 (all three timed out)"
+    ]
+  },
+  "timing_protocol": {
+    "clock": "time.perf_counter_ns",
+    "cpu_single_thread_env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    },
+    "pass1_live_rollouts": {
+      "warmup_sweep": "dev 0..99 (untimed)",
+      "metric": "t_decision_e2e_ns (encode_observation + forward_mlp + arm selection; no nested timers) plus separate Arm C wrapper.reset() timing",
+      "arm_order_rotation": "seed_offset % 3: [(A,B,C), (B,C,A), (C,A,B)]"
+    },
+    "pass2_off_policy_fixed_trace": {
+      "label": "off_policy_fixed_input_cost_measurement_NOT_valid_arm_c_rollout",
+      "trace_source": "recorded Arm A episodes on 50000..50499",
+      "warmup_repetitions": 1,
+      "timed_repetitions": 5,
+      "separate_passes": [
+        "pass2a_t_decision_e2e_ns (encode_observation + forward_mlp + arm selection; Arm C reset() per episode)",
+        "pass2b_t_exec_layer_ns (arm selection only on precomputed probs; Arm C reset() per episode)"
+      ]
+    },
+    "reported_percentiles": ["min", "p50", "p95", "p99", "max", "mean", "sample_count"]
+  }
+}

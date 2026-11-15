@@ -1,0 +1,21 @@
+{
+  "locked_versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "gymnasium": "1.4.0",
+    "minigrid": "3.2.0"
+  },
+  "locked_sha256": {
+    "phase1_weights.npz": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+    "phase1_config.json": "fbfe17539ab17b22cdf1628c163048c16947361d68180e35f0ea0bef1aa64e91",
+    "run_phase1.py": "e47737624e1f5024fc66559762f3b3ee29536f4f166fd96e2716d825313a7607",
+    "external_wrapper.py": "956571f84345d98b936a83186ada71558e3a6868336dbe323bd1c4b636485bec",
+    "phase5_stats.py": "c3dbc298ed425a7dc5e12c9ba9a6827188fd81a93ab605196034159d34dc7798",
+    "docs/action_mask_experiment_plan.md": "f6b9a632fbea6cd9e388831fdd11454149b41fec7fffb9c473942a9fd21c55e4",
+    "experiments/action_mask_ablation/frozen_plan.json": "e539fcf2a339770d8a4043e90defd5334899aaf1297191e1e2918fa9cdf81b70",
+    "experiments/action_mask_ablation/mask_selector.py": "790111eee93fc932dea8a927c49b8f5d3c91e1e366bc7c54ee29e3e52857eff4",
+    "experiments/action_mask_ablation/common.py": "c943af475111ba65b07b3de5ffbce7dcef3f7dddfc5120fbc7ef6aa0484978f2",
+    "experiments/action_mask_ablation/validate_dev.py": "55e8e797e2163458f8b28d0bd7fcf4e39680b70d41c1b51ae3302a6da166b799",
+    "experiments/action_mask_ablation/run_confirmation.py": "748a794bd1ce7c8ef59188fd1d528093f57c1b005c5c795d1bdd4c61bda83b37"
+  }
+}

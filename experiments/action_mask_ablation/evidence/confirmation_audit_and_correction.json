@@ -1,0 +1,638 @@
+{
+  "audit_status": "verified_with_statistical_correction",
+  "correction_note": {
+    "root_cause_location": "Both analysis code/saved summary (confirmation_results.json) and prior narrative summary",
+    "mechanism": "phase5_stats.exact_mcnemar_test() rounded p_value to 10 decimal places, truncating 2/2^36 (~2.910e-11 for C vs B) and 2/2^42 (~4.547e-13 for C vs A) to 0.0. common.holm_bonferroni_adjust() sorted on those rounded 0.0 values in insertion order (reversing the Holm multipliers for C_vs_B_primary [assigned 3] and C_vs_A_secondary [assigned 2]) and also rounded adjusted p-values to 10 decimals (producing 0.0 in confirmation_results.json).",
+    "remediation": "Original outputs/confirmation_results.json, outputs/confirmation_episodes.jsonl, frozen_plan.json, freeze_lock.json, and phase5_stats.py are preserved unchanged. Full-precision exact McNemar p-values and corrected Holm-Bonferroni adjustments are computed and recorded here."
+  },
+  "post_run_freeze_lock_verification": {
+    "freeze_lock_sha256": "7dc28eece7e53766bbac76c30285b141751991823bbb159740f76dcbea7d9878",
+    "all_pre_run_locked_files_match": true,
+    "hash_mismatches": [],
+    "checked_files": {
+      "phase1_weights.npz": {
+        "expected_sha256": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+        "observed_sha256": "e31f335039c27dc2b41a937a82d8a52e062828e15c3e049f8f470c614a6a19fd",
+        "matches": true
+      },
+      "phase1_config.json": {
+        "expected_sha256": "fbfe17539ab17b22cdf1628c163048c16947361d68180e35f0ea0bef1aa64e91",
+        "observed_sha256": "fbfe17539ab17b22cdf1628c163048c16947361d68180e35f0ea0bef1aa64e91",
+        "matches": true
+      },
+      "run_phase1.py": {
+        "expected_sha256": "e47737624e1f5024fc66559762f3b3ee29536f4f166fd96e2716d825313a7607",
+        "observed_sha256": "e47737624e1f5024fc66559762f3b3ee29536f4f166fd96e2716d825313a7607",
+        "matches": true
+      },
+      "external_wrapper.py": {
+        "expected_sha256": "956571f84345d98b936a83186ada71558e3a6868336dbe323bd1c4b636485bec",
+        "observed_sha256": "956571f84345d98b936a83186ada71558e3a6868336dbe323bd1c4b636485bec",
+        "matches": true
+      },
+      "phase5_stats.py": {
+        "expected_sha256": "c3dbc298ed425a7dc5e12c9ba9a6827188fd81a93ab605196034159d34dc7798",
+        "observed_sha256": "c3dbc298ed425a7dc5e12c9ba9a6827188fd81a93ab605196034159d34dc7798",
+        "matches": true
+      },
+      "docs/action_mask_experiment_plan.md": {
+        "expected_sha256": "f6b9a632fbea6cd9e388831fdd11454149b41fec7fffb9c473942a9fd21c55e4",
+        "observed_sha256": "f6b9a632fbea6cd9e388831fdd11454149b41fec7fffb9c473942a9fd21c55e4",
+        "matches": true
+      },
+      "experiments/action_mask_ablation/frozen_plan.json": {
+        "expected_sha256": "e539fcf2a339770d8a4043e90defd5334899aaf1297191e1e2918fa9cdf81b70",
+        "observed_sha256": "e539fcf2a339770d8a4043e90defd5334899aaf1297191e1e2918fa9cdf81b70",
+        "matches": true
+      },
+      "experiments/action_mask_ablation/mask_selector.py": {
+        "expected_sha256": "790111eee93fc932dea8a927c49b8f5d3c91e1e366bc7c54ee29e3e52857eff4",
+        "observed_sha256": "790111eee93fc932dea8a927c49b8f5d3c91e1e366bc7c54ee29e3e52857eff4",
+        "matches": true
+      },
+      "experiments/action_mask_ablation/common.py": {
+        "expected_sha256": "c943af475111ba65b07b3de5ffbce7dcef3f7dddfc5120fbc7ef6aa0484978f2",
+        "observed_sha256": "c943af475111ba65b07b3de5ffbce7dcef3f7dddfc5120fbc7ef6aa0484978f2",
+        "matches": true
+      },
+      "experiments/action_mask_ablation/validate_dev.py": {
+        "expected_sha256": "55e8e797e2163458f8b28d0bd7fcf4e39680b70d41c1b51ae3302a6da166b799",
+        "observed_sha256": "55e8e797e2163458f8b28d0bd7fcf4e39680b70d41c1b51ae3302a6da166b799",
+        "matches": true
+      },
+      "experiments/action_mask_ablation/run_confirmation.py": {
+        "expected_sha256": "748a794bd1ce7c8ef59188fd1d528093f57c1b005c5c795d1bdd4c61bda83b37",
+        "observed_sha256": "748a794bd1ce7c8ef59188fd1d528093f57c1b005c5c795d1bdd4c61bda83b37",
+        "matches": true
+      }
+    }
+  },
+  "recomputed_from_jsonl_verification": {
+    "episodes_checked": 500,
+    "arm_summaries_exact_match": true,
+    "pairwise_tables_exact_match": true,
+    "eight_cell_counts_exact_match": true,
+    "eight_cell_counts": {
+      "000": 4,
+      "001": 36,
+      "010": 0,
+      "011": 6,
+      "100": 0,
+      "101": 0,
+      "110": 0,
+      "111": 454
+    }
+  },
+  "full_precision_statistical_results": {
+    "primary_C_vs_B": {
+      "B_successes": 460,
+      "C_successes": 496,
+      "n_total": 500,
+      "C_only_success": 36,
+      "B_only_success": 0,
+      "delta_C_minus_B": 0.072,
+      "newcombe_method10_95_ci": {
+        "ci_lower": 0.050857,
+        "ci_upper": 0.098247,
+        "ci_includes_zero": false,
+        "phi_hat": 0.263158,
+        "degenerate_margin": false
+      },
+      "exact_mcnemar_full_precision": {
+        "method": "exact_two_sided_mcnemar_binomial_full_precision",
+        "discordant_pairs_total": 36,
+        "first_only_success": 0,
+        "second_only_success": 36,
+        "p_value": 2.9103830456733704e-11
+      },
+      "exact_mcnemar_p_sci": "2.910383e-11"
+    },
+    "secondary_exploratory": {
+      "B_vs_A": {
+        "A_successes": 454,
+        "B_successes": 460,
+        "B_only_success": 6,
+        "A_only_success": 0,
+        "delta_B_minus_A": 0.012,
+        "newcombe_method10_95_ci": {
+          "ci_lower": 0.000712,
+          "ci_upper": 0.024785,
+          "ci_includes_zero": false,
+          "phi_hat": 0.91365,
+          "degenerate_margin": false
+        },
+        "exact_mcnemar_full_precision": {
+          "method": "exact_two_sided_mcnemar_binomial_full_precision",
+          "discordant_pairs_total": 6,
+          "first_only_success": 0,
+          "second_only_success": 6,
+          "p_value": 0.03125
+        },
+        "exact_mcnemar_p_sci": "3.125000e-02"
+      },
+      "C_vs_A": {
+        "A_successes": 454,
+        "C_successes": 496,
+        "C_only_success": 42,
+        "A_only_success": 0,
+        "delta_C_minus_A": 0.084,
+        "newcombe_method10_95_ci": {
+          "ci_lower": 0.061263,
+          "ci_upper": 0.111758,
+          "ci_includes_zero": false,
+          "phi_hat": 0.243284,
+          "degenerate_margin": false
+        },
+        "exact_mcnemar_full_precision": {
+          "method": "exact_two_sided_mcnemar_binomial_full_precision",
+          "discordant_pairs_total": 42,
+          "first_only_success": 0,
+          "second_only_success": 42,
+          "p_value": 4.547473508864641e-13
+        },
+        "exact_mcnemar_p_sci": "4.547474e-13"
+      }
+    },
+    "supplementary_holm_bonferroni_corrected": {
+      "note": "Supplementary 3-contrast Holm-Bonferroni adjustment sorted by full-precision raw p-value, clearly separated from prespecified primary C_vs_B test.",
+      "contrasts": {
+        "C_vs_A_secondary": {
+          "rank": 1,
+          "raw_p_value": 4.547473508864641e-13,
+          "raw_p_sci": "4.547474e-13",
+          "holm_multiplier": 3,
+          "holm_adjusted_p_value": 1.3642420526593924e-12,
+          "holm_adjusted_p_sci": "1.364242e-12"
+        },
+        "C_vs_B_primary": {
+          "rank": 2,
+          "raw_p_value": 2.9103830456733704e-11,
+          "raw_p_sci": "2.910383e-11",
+          "holm_multiplier": 2,
+          "holm_adjusted_p_value": 5.820766091346741e-11,
+          "holm_adjusted_p_sci": "5.820766e-11"
+        },
+        "B_vs_A_secondary": {
+          "rank": 3,
+          "raw_p_value": 0.03125,
+          "raw_p_sci": "3.125000e-02",
+          "holm_multiplier": 1,
+          "holm_adjusted_p_value": 0.03125,
+          "holm_adjusted_p_sci": "3.125000e-02"
+        }
+      }
+    }
+  },
+  "full_batch_diagnostic_audit": {
+    "baseline_454_wins": {
+      "count": 454,
+      "divergences_in_B_or_C": [],
+      "zero_regressions_and_zero_interventions_on_all_baseline_wins": true
+    },
+    "baseline_46_timeouts_partition_by_first_pose_cycle_length": {
+      "cycle_len_1_blocked_forward_count": 13,
+      "cycle_len_1_all_had_B_action_change": true,
+      "cycle_len_1_B_rescued_count": 6,
+      "cycle_len_1_B_rescued_seeds": [
+        50024,
+        50042,
+        50050,
+        50242,
+        50411,
+        50463
+      ],
+      "cycle_len_1_B_failed_count": 7,
+      "cycle_len_1_B_failed_seeds": [
+        50082,
+        50136,
+        50212,
+        50270,
+        50293,
+        50373,
+        50446
+      ],
+      "cycle_len_1_B_failed_new_cycle_lengths": [
+        2,
+        2,
+        2,
+        8,
+        2,
+        2,
+        2
+      ],
+      "cycle_len_1_C_rescued_count": 12,
+      "cycle_len_1_C_failed_seeds": [
+        50270
+      ],
+      "unblocked_cycle_count": 33,
+      "unblocked_cycle_B_action_changed_count": 0,
+      "unblocked_cycle_B_rescued_count": 0,
+      "unblocked_cycle_C_rescued_count": 30,
+      "unblocked_cycle_C_failed_seeds": [
+        50006,
+        50095,
+        50123
+      ]
+    }
+  },
+  "prespecified_trace_subset_audit": {
+    "count": 9,
+    "note": "9 seeds selected by max_per_stratum=3 ascending (50024, 50042, 50050; 50012, 50019, 50032; 50006, 50095, 50123). Triple-timeout seed 50270 has per-seed JSONL summary only (no saved step trace).",
+    "selected_traces_summary": [
+      {
+        "stratum": "A0_B1_C1",
+        "seed": 50024,
+        "mission": "go to a blue ball",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 63,
+            "first_pose_cycle_length": 1
+          },
+          "B": {
+            "outcome": "success",
+            "episode_length": 7,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 1,
+            "mask_action_changes": 1,
+            "first_pose_cycle_length": null
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 8,
+            "blocked_forward_steps": 1,
+            "override_steps": 1,
+            "retained_obs_keys": 7,
+            "first_pose_cycle_length": 1
+          }
+        }
+      },
+      {
+        "stratum": "A0_B1_C1",
+        "seed": 50042,
+        "mission": "go to a purple ball",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 59,
+            "first_pose_cycle_length": 1
+          },
+          "B": {
+            "outcome": "success",
+            "episode_length": 13,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 2,
+            "mask_action_changes": 1,
+            "first_pose_cycle_length": null
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 14,
+            "blocked_forward_steps": 1,
+            "override_steps": 1,
+            "retained_obs_keys": 13,
+            "first_pose_cycle_length": 1
+          }
+        }
+      },
+      {
+        "stratum": "A0_B1_C1",
+        "seed": 50050,
+        "mission": "go to a grey key",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 61,
+            "first_pose_cycle_length": 1
+          },
+          "B": {
+            "outcome": "success",
+            "episode_length": 8,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 2,
+            "mask_action_changes": 1,
+            "first_pose_cycle_length": null
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 9,
+            "blocked_forward_steps": 1,
+            "override_steps": 1,
+            "retained_obs_keys": 8,
+            "first_pose_cycle_length": 1
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C1",
+        "seed": 50012,
+        "mission": "go to the purple key",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 6
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 20,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 6
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 22,
+            "blocked_forward_steps": 0,
+            "override_steps": 5,
+            "retained_obs_keys": 17,
+            "first_pose_cycle_length": 6
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C1",
+        "seed": 50019,
+        "mission": "go to the red ball",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 2
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 0,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 2
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 9,
+            "blocked_forward_steps": 0,
+            "override_steps": 1,
+            "retained_obs_keys": 8,
+            "first_pose_cycle_length": 2
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C1",
+        "seed": 50032,
+        "mission": "go to the grey key",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 2
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 0,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 2
+          },
+          "C": {
+            "outcome": "success",
+            "episode_length": 10,
+            "blocked_forward_steps": 0,
+            "override_steps": 1,
+            "retained_obs_keys": 9,
+            "first_pose_cycle_length": 2
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C0",
+        "seed": 50006,
+        "mission": "go to the yellow box",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 10
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 13,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 10
+          },
+          "C": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 2,
+            "override_steps": 26,
+            "retained_obs_keys": 29,
+            "first_pose_cycle_length": 10
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C0",
+        "seed": 50095,
+        "mission": "go to the blue ball",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 2
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 30,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 2
+          },
+          "C": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 1,
+            "override_steps": 25,
+            "retained_obs_keys": 34,
+            "first_pose_cycle_length": 2
+          }
+        }
+      },
+      {
+        "stratum": "A0_B0_C0",
+        "seed": 50123,
+        "mission": "go to the purple ball",
+        "summary_A_B_C": {
+          "A": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "first_pose_cycle_length": 8
+          },
+          "B": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 0,
+            "mask_exclusions": 16,
+            "mask_action_changes": 0,
+            "first_pose_cycle_length": 8
+          },
+          "C": {
+            "outcome": "timeout",
+            "episode_length": 64,
+            "blocked_forward_steps": 4,
+            "override_steps": 28,
+            "retained_obs_keys": 28,
+            "first_pose_cycle_length": 8
+          }
+        }
+      }
+    ]
+  },
+  "timing_evidence_audit": {
+    "raw_per_decision_ns_arrays_saved_on_disk": false,
+    "limitation_note": "Only aggregate latency distribution summaries (sample_count, min_us, p50_us, p95_us, p99_us, max_us, mean_us) were persisted in confirmation_results.json; raw per-call nanosecond sample arrays were not written to disk.",
+    "timing_live_rollouts": {
+      "measurement_type": "live_rollout_e2e_observation_to_selected_action_excluding_env_step",
+      "arm_order_rotation": "seed_offset % 3: [(A,B,C), (B,C,A), (C,A,B)]",
+      "warmup_completed": "dev 0..99 untimed",
+      "gc_enabled": true,
+      "per_arm_t_decision_e2e_us": {
+        "A": {
+          "sample_count": 5333,
+          "min_us": 25.0,
+          "p50_us": 28.6,
+          "p95_us": 63.2,
+          "p99_us": 109.6,
+          "max_us": 694.1,
+          "mean_us": 34.636
+        },
+        "B": {
+          "sample_count": 5016,
+          "min_us": 31.9,
+          "p50_us": 36.5,
+          "p95_us": 78.05,
+          "p99_us": 135.615,
+          "max_us": 514.9,
+          "mean_us": 43.4
+        },
+        "C": {
+          "sample_count": 3386,
+          "min_us": 29.1,
+          "p50_us": 34.1,
+          "p95_us": 74.475,
+          "p99_us": 135.31,
+          "max_us": 665.0,
+          "mean_us": 41.374
+        }
+      },
+      "arm_c_wrapper_reset_us": {
+        "sample_count": 500,
+        "min_us": 0.6,
+        "p50_us": 1.4,
+        "p95_us": 3.8,
+        "p99_us": 6.1,
+        "max_us": 12.8,
+        "mean_us": 1.715
+      }
+    },
+    "timing_off_policy_fixed_trace": {
+      "measurement_type": "off_policy_fixed_input_cost_measurement_NOT_valid_arm_c_rollout",
+      "trace_source": "recorded Arm A episodes from seeds 50000..50499",
+      "trace_episodes": 500,
+      "trace_steps_per_pass": 5333,
+      "warmup_repetitions": 1,
+      "timed_repetitions": 5,
+      "achieved_samples_per_arm": 26665,
+      "pass2a_fixed_trace_decision_e2e_us": {
+        "A": {
+          "sample_count": 26665,
+          "min_us": 18.9,
+          "p50_us": 19.6,
+          "p95_us": 27.48,
+          "p99_us": 74.9,
+          "max_us": 1222.8,
+          "mean_us": 22.412
+        },
+        "B": {
+          "sample_count": 26665,
+          "min_us": 23.4,
+          "p50_us": 24.7,
+          "p95_us": 38.88,
+          "p99_us": 98.108,
+          "max_us": 669.9,
+          "mean_us": 28.232
+        },
+        "C": {
+          "sample_count": 26665,
+          "min_us": 21.6,
+          "p50_us": 22.5,
+          "p95_us": 30.0,
+          "p99_us": 85.8,
+          "max_us": 931.2,
+          "mean_us": 25.055
+        }
+      },
+      "pass2a_wrapper_reset_us": {
+        "sample_count": 2500,
+        "min_us": 0.1,
+        "p50_us": 0.4,
+        "p95_us": 1.2,
+        "p99_us": 2.0,
+        "max_us": 8.4,
+        "mean_us": 0.47
+      },
+      "pass2b_fixed_trace_exec_layer_only_us": {
+        "A": {
+          "sample_count": 26665,
+          "min_us": 0.6,
+          "p50_us": 0.7,
+          "p95_us": 0.9,
+          "p99_us": 1.9,
+          "max_us": 113.5,
+          "mean_us": 0.753
+        },
+        "B": {
+          "sample_count": 26665,
+          "min_us": 4.6,
+          "p50_us": 5.1,
+          "p95_us": 6.2,
+          "p99_us": 15.8,
+          "max_us": 342.2,
+          "mean_us": 5.603
+        },
+        "C": {
+          "sample_count": 26665,
+          "min_us": 3.0,
+          "p50_us": 3.3,
+          "p95_us": 3.9,
+          "p99_us": 9.536,
+          "max_us": 475.5,
+          "mean_us": 3.605
+        }
+      },
+      "pass2b_wrapper_reset_us": {
+        "sample_count": 2500,
+        "min_us": 0.1,
+        "p50_us": 0.3,
+        "p95_us": 0.6,
+        "p99_us": 1.401,
+        "max_us": 62.3,
+        "mean_us": 0.362
+      }
+    }
+  }
+}
